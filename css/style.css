@@ -36,13 +36,13 @@ html, body {
   padding: 40px 0px 0px 0px;
 }
 
-.sidenav a {
+.sidenav li {
   font-size: 25px;
   top: 0;
   color: #6EB9D4;
   display: block;
   transition: 0.3s;
-  padding: 10px 30px;
+  padding: 10px 0px;
 }
 
 .sidenav .closebtn {
@@ -51,7 +51,7 @@ html, body {
   font-size: 36px;
 }
 
-.sidenav a:hover {
+.sidenav li:hover {
   color: #e5e9da;
 }
 
