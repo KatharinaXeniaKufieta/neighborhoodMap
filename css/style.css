@@ -3,6 +3,7 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
+  background-color: #25424D;
 }
 
 .container {
@@ -20,6 +21,7 @@ html, body {
 #map {
   height: 100%;
   left: 150px;
+  background-color: #e3e7d6;
 }
 
 .sidenav {
@@ -28,7 +30,7 @@ html, body {
   position: fixed;
   z-index: 1;
   left: 0;
-  background-color: #111;
+  background-color: #567682;
   transition: 0.5s;
   padding: 40px 0px 0px 20px;
 }
@@ -36,7 +38,7 @@ html, body {
 .sidenav a {
   font-size: 25px;
   top: 0;
-  color: #818181;
+  color: #6EB9D4;
   display: block;
   transition: 0.3s;
   padding: 10px;
@@ -49,5 +51,17 @@ html, body {
 }
 
 .sidenav a:hover {
-  color: #f1f1f1;
+  color: #e5e9da;
 }
+
+.title {
+  color: #e5e9da;
+}
+
+
+
+/*
+Colour palette used for the theme
+
+http://www.colourlovers.com/palette/3521957/Congenial
+*/
