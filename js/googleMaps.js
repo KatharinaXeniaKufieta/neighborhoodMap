@@ -1,5 +1,5 @@
 // Global variables for the map
-var zoom = 14;
+var zoom = 13;
 var map;
 
 // Callback function that is called when google maps is created

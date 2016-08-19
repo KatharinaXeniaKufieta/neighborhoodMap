@@ -13,6 +13,41 @@ html, body {
   width: 100%;
 }
 
+.nav {
+  width: 300px;
+}
+
 #map {
   height: 100%;
+  left: 150px;
+}
+
+.sidenav {
+  height: 100%;
+  width: 300px;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  background-color: #111;
+  transition: 0.5s;
+  padding: 40px 0px 0px 20px;
+}
+
+.sidenav a {
+  font-size: 25px;
+  top: 0;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+  padding: 10px;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  right: 25px;
+  font-size: 36px;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
 }
