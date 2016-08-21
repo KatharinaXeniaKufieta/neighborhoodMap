@@ -16,7 +16,8 @@ function initMap() {
   // Boundaries that will be adjusted depending on the markers that are shown
   var bounds = new google.maps.LatLngBounds();
   // Infowindow that is shown when a list item or marker is clicked
-  var cornerInfoWindow = new google.maps.InfoWindow();
+  var largeInfoWindow = new google.maps.InfoWindow();
+  var miniInfoWindow = new google.maps.InfoWindow();
 
   locations.forEach(function(location) {
     // Get the information from the locations array
@@ -37,8 +38,14 @@ function initMap() {
     });
 
     markers.push(marker);
+    marker.addListener('mouseover', function() {
+      showMinimizedInfoWindow(this, miniInfoWindow);
+    });
+    marker.addListener('mouseout', function() {
+      hideMinimizedInfoWindow(this, miniInfoWindow);
+    });
     marker.addListener('click', function() {
-      showInfoWindow(this, cornerInfoWindow);
+      showInfoWindow(this, largeInfoWindow);
     });
   });
 
@@ -67,11 +74,9 @@ var showInfoWindow = function(marker, infowindow) {
     // In case the status is OK, which means the pano was found, compute
     // the position of the streetview image, then calculate the heading,
     // then get a panorama from that and set the options
-    console.log(google.maps.StreetViewStatus.OK);
     function getStreetView(data, status) {
       if (status == google.maps.StreetViewStatus.OK) {
         var nearStreetViewLocation = data.location.latLng;
-        console.log(nearStreetViewLocation);
         var heading = google.maps.geometry.spherical.computeHeading(nearStreetViewLocation, marker.position);
         infowindow.setContent('<div id="pano"></div><img class="infowindow-image" src="' + marker.descriptionImage + '"><div class="infowindow-text">' + marker.description + '</div>');
         var panoramaOptions = {
@@ -93,4 +98,22 @@ var showInfoWindow = function(marker, infowindow) {
     // Open the infowindow on the correct marker
     infowindow.open(map, marker);
   }
+}
+
+var showMinimizedInfoWindow = function(marker, infowindow) {
+  // Check to make sure the infowindow is not already opened
+  // on this marker.
+  if (infowindow.marker != marker) {
+    infowindow.marker = marker;
+    infowindow.setContent('');
+    infowindow.open(map, marker);
+    // Make sure the marker property is cleared if the infowindow is closed.
+    infowindow.setContent('<div id="min-infowindow "class="infowindow-text">' + marker.title + '</div>');
+  }
+  // Open the infowindow on the correct marker
+  infowindow.open(map, marker);
+}
+
+var hideMinimizedInfoWindow = function(marker, infowindow) {
+  infowindow.close();
 }
