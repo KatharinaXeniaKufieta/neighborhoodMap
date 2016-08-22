@@ -25,6 +25,29 @@ html, body {
   background-color: #e3e7d6;
 }
 
+#corner-infowindow {
+  position: absolute;
+  width: 270px;
+  height: 380px;
+  z-index: 1;
+  left: 330px;
+  top: 110px;
+  background-color: white;
+  visibility: hidden;
+}
+
+#close-thick:after {
+  color: #a5a5a5;
+  font: 22px/100% arial, sans-serif;
+  position: absolute;
+  right: 7px;
+  text-decoration: none;
+  text-shadow: 0 1px 0 #fff;
+  top: 7px;
+  content: '×';
+  cursor: pointer;
+}
+
 .sidenav {
   height: calc(100% - 80px);
   width: 300px;
