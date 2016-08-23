@@ -2,6 +2,7 @@
 var zoom = 13;
 var map;
 var markers = [];
+var largeInfoWindow, miniInfoWindow, cornerInfoWindow;
 
 
 // Callback function that is called when google maps is created
@@ -16,9 +17,9 @@ function initMap() {
   // Boundaries that will be adjusted depending on the markers that are shown
   var bounds = new google.maps.LatLngBounds();
   // Infowindow that is shown when a list item or marker is clicked
-  var largeInfoWindow = new google.maps.InfoWindow();
-  var miniInfoWindow = new google.maps.InfoWindow();
-  var cornerInfoWindow = document.getElementById('corner-infowindow');
+  largeInfoWindow = new google.maps.InfoWindow();
+  miniInfoWindow = new google.maps.InfoWindow();
+  cornerInfoWindow = document.getElementById('corner-infowindow');
   cornerInfoWindow.className += ' gm-style-iw';
 
   locations.forEach(function(location) {
@@ -26,15 +27,17 @@ function initMap() {
     var position = location.location;
     var title = location.title;
     var description = location.description;
-    var descriptionImage = location.descriptionImage;
+    var gif = location.gif;
+    var id = location.id;
     var iconImage = location.iconImage;
     // Create a new marker for each location and
     // put it into the markers array
     var marker = new google.maps.Marker({
+      id: id,
       position: position,
       title: title,
       description: description,
-      descriptionImage: descriptionImage,
+      gif: gif,
       animation: google.maps.Animation.DROP,
       icon: iconImage
     });
@@ -86,7 +89,7 @@ var showInfoWindow = function(marker, infowindow, cornerInfoWindow) {
         if (status == google.maps.StreetViewStatus.OK) {
           var nearStreetViewLocation = data.location.latLng;
           var heading = google.maps.geometry.spherical.computeHeading(nearStreetViewLocation, marker.position);
-          cornerInfoWindow.innerHTML = '<div id="close-thick"></div><div id="pano"></div><img class="infowindow-image" src="' + marker.descriptionImage + '"><div class="infowindow-text">' + marker.description + '</div>';
+          cornerInfoWindow.innerHTML = '<div id="close-thick"></div><div id="pano"></div><img class="infowindow-image" src="' + marker.gif + '"><div class="infowindow-text">' + marker.description + '</div>';
           var panoramaOptions = {
             position: nearStreetViewLocation,
             pov: {
@@ -97,7 +100,7 @@ var showInfoWindow = function(marker, infowindow, cornerInfoWindow) {
           var panorama = new google.maps.StreetViewPanorama(
             document.getElementById('pano'), panoramaOptions);
         } else {
-          cornerInfoWindow.innerHTML = '<div id="close-thick"></div><img class="infowindow-image" src="' + marker.descriptionImage + '"><div class="infowindow-text">' + marker.description + '</div>';
+          cornerInfoWindow.innerHTML = '<div id="close-thick"></div><img class="infowindow-image" src="' + marker.gif + '"><div class="infowindow-text">' + marker.description + '</div>';
         }
         var closebutton = document.getElementById('close-thick');
         closebutton.addEventListener('click', function() {

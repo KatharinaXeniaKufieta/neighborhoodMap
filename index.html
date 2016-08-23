@@ -20,7 +20,7 @@
         <div class="sidenav">
           <ul data-bind="foreach: locations">
             <li class="closebtn">&times;</a>
-            <li data-bind="text: title"></li>
+            <li data-bind="text: title, click: $parent.chooseLocation"></li>
           </ul>
         </div>
         <div id="corner-infowindow">
