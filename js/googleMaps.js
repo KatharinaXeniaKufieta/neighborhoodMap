@@ -1,12 +1,18 @@
 // Global variables for the map
 var zoom = 13;
-var map;
-var markers = [];
+var map, bounds;
 var largeInfoWindow, miniInfoWindow, cornerInfoWindow;
+
+// When google maps has loaded, apply bindings and load map
+var initMap = function() {
+  showMap();
+
+  ko.applyBindings(new ViewModel());
+}
 
 
 // Callback function that is called when google maps is created
-function initMap() {
+var showMap = function() {
   map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: 40.7413549, lng: -73.9980244},
     zoom: zoom,
@@ -15,52 +21,12 @@ function initMap() {
   });
 
   // Boundaries that will be adjusted depending on the markers that are shown
-  var bounds = new google.maps.LatLngBounds();
-  // Infowindow that is shown when a list item or marker is clicked
+  bounds = new google.maps.LatLngBounds();
+  // Infowindows that are shown when a list item or marker is clicked
   largeInfoWindow = new google.maps.InfoWindow();
   miniInfoWindow = new google.maps.InfoWindow();
   cornerInfoWindow = document.getElementById('corner-infowindow');
   cornerInfoWindow.className += ' gm-style-iw';
-
-  locations.forEach(function(location) {
-    // Get the information from the locations array
-    var position = location.location;
-    var title = location.title;
-    var description = location.description;
-    var gif = location.gif;
-    var id = location.id;
-    var iconImage = location.iconImage;
-    // Create a new marker for each location and
-    // put it into the markers array
-    var marker = new google.maps.Marker({
-      id: id,
-      position: position,
-      title: title,
-      description: description,
-      gif: gif,
-      animation: google.maps.Animation.DROP,
-      icon: iconImage
-    });
-
-    markers.push(marker);
-    marker.addListener('mouseover', function() {
-      showMinimizedInfoWindow(this, miniInfoWindow, largeInfoWindow, cornerInfoWindow);
-    });
-    marker.addListener('mouseout', function() {
-      hideMinimizedInfoWindow(this, miniInfoWindow);
-    });
-    marker.addListener('click', function() {
-      showInfoWindow(this, largeInfoWindow, cornerInfoWindow);
-    });
-  });
-
-  markers.forEach(function(marker) {
-    marker.setMap(map);
-    bounds.extend(marker.position);
-  });
-
-  // Extend the boundaries of the map for each marker
-  map.fitBounds(bounds);
 }
 
 var showInfoWindow = function(marker, infowindow, cornerInfoWindow) {
@@ -128,8 +94,7 @@ var showInfoWindow = function(marker, infowindow, cornerInfoWindow) {
       infowindow.open(map, marker);
     }
   }
-
-}
+};
 
 var showMinimizedInfoWindow = function(marker, miniInfoWindow, largeInfoWindow, cornerInfoWindow) {
   // Check to make sure the miniInfoWindow is not already opened
@@ -143,8 +108,8 @@ var showMinimizedInfoWindow = function(marker, miniInfoWindow, largeInfoWindow, 
     miniInfoWindow.open(map, marker);
   }
   // Open the infowindow on the correct marker
-}
+};
 
 var hideMinimizedInfoWindow = function(marker, infowindow) {
   infowindow.close();
-}
+};

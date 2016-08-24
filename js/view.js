@@ -1,33 +1,68 @@
 var Location = function(data) {
+  // Knockout observables
   this.title = ko.observable(data.title);
-  this.location = ko.observable(data.location);
+  this.position = ko.observable(data.position);
   this.description = ko.observable(data.description);
-  this.iconImage = ko.observable(data.iconImage);
+  this.icon = ko.observable(data.iconImage);
   this.gif = ko.observable(data.gif);
   this.id = ko.observable(data.id);
-  this.liked = false;
+  this.liked = ko.observable(data.liked);
+  this.highlighted = false;
+
+  // Markers are not supposed to be observables
+  // Create a new marker for each location
+  this.marker = new google.maps.Marker({
+    title: data.title,
+    position: data.position,
+    description: data.description,
+    icon: data.iconImage,
+    gif: data.gif,
+    id: data.id,
+    liked: data.liked,
+    animation: google.maps.Animation.DROP
+  });
+
+  this.marker.addListener('mouseover', function() {
+    showMinimizedInfoWindow(this, miniInfoWindow, largeInfoWindow, cornerInfoWindow);
+    this.highlighted = true;
+  });
+  this.marker.addListener('mouseout', function() {
+    hideMinimizedInfoWindow(this, miniInfoWindow);
+    this.highlighted = false;
+  });
+  this.marker.addListener('click', function() {
+    showInfoWindow(this, largeInfoWindow, cornerInfoWindow);
+    hideMinimizedInfoWindow(this, miniInfoWindow);
+    this.highlighted = true;
+  });
 };
+
+/***********
+ * ViewModel
+ ***********/
 
 var ViewModel = function() {
   var self = this;
+  // put the locations into an observable array
   this.locations = ko.observableArray([]);
 
   locations.forEach(function(location) {
     self.locations.push(new Location(location));
   });
 
-  this.chooseLocation = function(location) {
-    // self refers now to the ViewModel,
-    // this would have represented the binding context when you
-    // click on incrementCounter
-    markers.forEach(function(marker) {
-      console.log('marker.id: ' + marker.id);
-      console.log('location.id: ' + location.id());
-      if (marker.id === location.id()) {
-        showInfoWindow(marker, largeInfoWindow, cornerInfoWindow);
-      }
-    });
-  };
-}
+  // Set the map for each marker, extend boundaries to encompass
+  // all markers
+  this.locations().forEach(function(location) {
+    location.marker.setMap(map);
+    bounds.extend(location.marker.position);
+  });
 
-ko.applyBindings(new ViewModel());
+  // Extend the boundaries of the map for each marker
+  map.fitBounds(bounds);
+
+  this.chooseLocation = function(location) {
+    showInfoWindow(location.marker, largeInfoWindow, cornerInfoWindow);
+    location.highlighted = true;
+  };
+};
+
