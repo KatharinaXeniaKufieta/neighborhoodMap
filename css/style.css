@@ -74,6 +74,11 @@ html, body {
   font-size: 36px;
 }
 
+.sidenav .closebtn:hover {
+  cursor: pointer;
+  color: #e5e9da;
+}
+
 li.selected {
   color: #ebfd1b;
 }
@@ -83,6 +88,7 @@ li.noHighlight {
 }
 
 li.hover {
+  cursor: pointer;
   color: #e5e9da;
 }
 
