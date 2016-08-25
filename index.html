@@ -8,7 +8,7 @@
   </head>
   <body>
     <div class="container">
-      <div class="row hero">
+      <div class="row">
         <div class="col-7">
         <h1 class="title">Kathis KJs NYC favs</h1>
         </div>
@@ -20,7 +20,7 @@
         <div class="sidenav">
           <ul data-bind="foreach: locations">
             <li class="closebtn">&times;</a>
-            <li data-bind="text: title, click: $parent.chooseLocation"></li>
+<li data-bind="text: title, css: getSelected, click: $parent.chooseLocation, event: {mouseover: $parent.mouseOver, mouseout: $parent.mouseOut}"></li>
           </ul>
         </div>
         <div id="corner-infowindow">

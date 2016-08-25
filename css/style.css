@@ -3,7 +3,7 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
-  background-color: #25424D;
+  background-color: #25424d;
 }
 
 .container {
@@ -62,7 +62,7 @@ html, body {
 .sidenav li {
   font-size: 25px;
   top: 0;
-  color: #6EB9D4;
+  color: #6Eb9d4;
   display: block;
   transition: 0.3s;
   padding: 10px 0px;
@@ -74,11 +74,20 @@ html, body {
   font-size: 36px;
 }
 
-.sidenav li:hover {
+li.selected {
+  color: #ebfd1b;
+}
+
+li.noHighlight {
+  color: #6eb9d4;
+}
+
+li.hover {
   color: #e5e9da;
 }
 
-.hero {
+.sidenav li:hover {
+  color: #e5e9da;
 }
 
 .title {
