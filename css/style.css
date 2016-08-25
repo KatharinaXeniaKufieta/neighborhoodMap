@@ -62,7 +62,7 @@ html, body {
 .sidenav li {
   font-size: 25px;
   top: 0;
-  color: #6Eb9d4;
+  color: #6eb9d4;
   display: block;
   transition: 0.3s;
   padding: 10px 0px;
@@ -86,10 +86,6 @@ li.hover {
   color: #e5e9da;
 }
 
-.sidenav li:hover {
-  color: #e5e9da;
-}
-
 .title {
   color: #e5e9da;
   padding: 0px 20px;
@@ -98,6 +94,12 @@ li.hover {
 #pano {
   width: 200px;
   height: 200px;
+}
+
+#min-infowindow {
+  color: #567682;
+  font-size: 20px;
+  font-weight: 1.5em;
 }
 
 .infowindow-image {

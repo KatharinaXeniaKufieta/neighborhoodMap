@@ -64,10 +64,10 @@ var ViewModel = function() {
 
 
     location.getSelected = ko.pureComputed(function() {
-      if (location.hover()) {
-        return 'hover';
-      } else if (self.selectedLocationId() === location.id()) {
+      if (self.selectedLocationId() === location.id()) {
         return 'selected';
+      } else if (location.hover()) {
+          return 'hover';
       } else {
         return 'noHighlight';
       }
@@ -194,7 +194,7 @@ ViewModel.prototype.showMinimizedInfoWindow = function(marker) {
     miniInfoWindow.setContent('');
     miniInfoWindow.open(map, marker);
     // Make sure the marker property is cleared if the miniInfoWindow is closed.
-    miniInfoWindow.setContent('<div id="min-infowindow "class="infowindow-text">' + marker.title + '</div>');
+    miniInfoWindow.setContent('<div id="min-infowindow" class="infowindow-text">' + marker.title + '</div>');
     miniInfoWindow.open(map, marker);
   }
   // Open the infowindow on the correct marker
