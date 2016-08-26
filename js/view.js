@@ -4,11 +4,12 @@ var Location = function(data) {
   this.title = ko.observable(data.title);
   this.position = ko.observable(data.position);
   this.description = ko.observable(data.description);
-  this.icon = ko.observable(data.iconImage);
   this.gif = ko.observable(data.gif);
   this.id = ko.observable(data.id);
   this.liked = ko.observable(data.liked);
   this.hover = ko.observable(false);
+
+  this.icon = data.iconImage;
 
   // Markers are not supposed to be observables
   // Create a new marker for each location
@@ -36,6 +37,13 @@ var ViewModel = function() {
   // put the locations into an observable array
   this.locations = ko.observableArray([]);
   this.selectedLocationId = ko.observable(null);
+
+  // Style the markers a bit.
+
+  // Create a "highlighted location" marker color for when the user hovers over the marker
+  this.highlightedIcon = this.makeMarkerIcon('6eb9d4');
+  this.selectedIcon = this.makeMarkerIcon('ebfd1b');
+
 
   locations.forEach(function(loc) {
     var location = new Location(loc);
@@ -72,10 +80,13 @@ var ViewModel = function() {
 
     location.getSelected = ko.pureComputed(function() {
       if (self.selectedLocationId() === location.id()) {
+        location.marker.setIcon(self.selectedIcon);
         return 'selected';
       } else if (location.hover()) {
+        location.marker.setIcon(self.highlightedIcon);
           return 'hover';
       } else {
+        location.marker.setIcon(location.icon);
         return 'noHighlight';
       }
     }, location);
@@ -213,4 +224,15 @@ ViewModel.prototype.showMinimizedInfoWindow = function(marker) {
 ViewModel.prototype.hideMinimizedInfoWindow = function(marker) {
   miniInfoWindow.close();
   miniInfoWindow.marker = null;
+};
+
+ViewModel.prototype.makeMarkerIcon = function(markerColor) {
+  var markerImage = {
+    url: 'http://chart.googleapis.com/chart?chst=d_map_spin&chld=1.15|0|'+ markerColor + '|40|_|%E2%80%A2',
+    size: new google.maps.Size(21, 34),
+    origin: new google.maps.Point(0, 0),
+    anchor: new google.maps.Point(10, 34),
+    scaledSize: new google.maps.Size(21, 34)
+  };
+  return markerImage;
 };

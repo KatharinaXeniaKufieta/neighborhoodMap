@@ -57,11 +57,12 @@ html, body {
 }
 
 .sidenav {
-  height: calc(100% - 80px);
+  height: calc(100% - 100px);
   width: 300px;
-  position: fixed;
+  position: absolute;
   z-index: 1;
   left: 0;
+  top: 80px;
   background-color: #567682;
   transition: 0.5s;
   padding: 40px 0px 0px 0px;
@@ -136,6 +137,18 @@ li.hover {
   font-size: 15px;
   overflow: hidden;
   color: #25424d;
+}
+
+.license-text {
+  z-index: 2;
+  font-size: 15px;
+  color: #6eb9d4;
+  background-color: #25424d;
+}
+
+.license-text a {
+  color: #6eb9d4;
+  text-decoration: none;
 }
 
 .col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, 0, .col-11, 1, .col-12, {
