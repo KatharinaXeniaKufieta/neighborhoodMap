@@ -62,6 +62,13 @@ var ViewModel = function() {
       };
     })(location));
 
+    location.selected = ko.pureComputed(function() {
+      if (self.selectedLocationId() === location.id()) {
+        return true;
+      } else {
+        return false;
+      }
+    }, location);
 
     location.getSelected = ko.pureComputed(function() {
       if (self.selectedLocationId() === location.id()) {
@@ -138,7 +145,7 @@ ViewModel.prototype.showInfoWindow = function(location) {
         if (status == google.maps.StreetViewStatus.OK) {
           var nearStreetViewLocation = data.location.latLng;
           var heading = google.maps.geometry.spherical.computeHeading(nearStreetViewLocation, marker.position);
-          cornerInfoWindow.innerHTML = '<div id="close-thick"></div><div id="pano"></div><img class="infowindow-image" src="' + marker.gif + '"><div class="infowindow-text">' + marker.description + '</div>';
+          cornerInfoWindow.innerHTML = '<div id="close-thick"></div><div id="pano"></div><div class="infowindow-text">' + marker.description + '</div>';
           var panoramaOptions = {
             position: nearStreetViewLocation,
             pov: {
@@ -149,7 +156,7 @@ ViewModel.prototype.showInfoWindow = function(location) {
           var panorama = new google.maps.StreetViewPanorama(
             document.getElementById('pano'), panoramaOptions);
         } else {
-          cornerInfoWindow.innerHTML = '<div id="close-thick"></div><img class="infowindow-image" src="' + marker.gif + '"><div class="infowindow-text">' + marker.description + '</div>';
+          cornerInfoWindow.innerHTML = '<div id="close-thick"></div><div class="infowindow-text">' + marker.description + '</div>';
         }
         var closebutton = document.getElementById('close-thick');
         closebutton.addEventListener('click', function() {

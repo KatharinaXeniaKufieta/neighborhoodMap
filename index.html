@@ -18,9 +18,13 @@
       </div>
       <div class="row">
         <div class="sidenav">
+          <ul>
+            <li class="closebtn">&times;</li>
+          </ul>
           <ul data-bind="foreach: locations">
-            <li class="closebtn">&times;</a>
-<li data-bind="text: title, css: getSelected, click: $parent.chooseLocation, event: {mouseover: $parent.mouseOver, mouseout: $parent.mouseOut}"></li>
+            <li data-bind="text: title, css: getSelected, click: $parent.chooseLocation, event: {mouseover: $parent.mouseOver, mouseout: $parent.mouseOut}">
+            </li>
+            <img class="infowindow-image" data-bind="attr: {src: gif}, visible: selected">
           </ul>
         </div>
         <div id="corner-infowindow">
