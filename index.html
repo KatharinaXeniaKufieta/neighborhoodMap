@@ -24,7 +24,7 @@
           <ul data-bind="foreach: locations">
             <li data-bind="text: title, css: getSelected, click: $parent.chooseLocation, event: {mouseover: $parent.mouseOver, mouseout: $parent.mouseOut}">
             </li>
-            <img class="infowindow-image" data-bind="attr: {src: gif}, visible: selected">
+            <img class="gif-image" data-bind="attr: {src: gif}, visible: selected">
           </ul>
         </div>
         <div id="corner-infowindow">

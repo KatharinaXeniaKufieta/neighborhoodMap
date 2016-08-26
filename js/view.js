@@ -145,18 +145,18 @@ ViewModel.prototype.showInfoWindow = function(location) {
         if (status == google.maps.StreetViewStatus.OK) {
           var nearStreetViewLocation = data.location.latLng;
           var heading = google.maps.geometry.spherical.computeHeading(nearStreetViewLocation, marker.position);
-          cornerInfoWindow.innerHTML = '<div id="close-thick"></div><div id="pano"></div><div class="infowindow-text">' + marker.description + '</div>';
+          cornerInfoWindow.innerHTML = '<div id="close-thick"></div><div id="pano"></div><div class="infowindow-text"><h2>' + marker.title + '</h2><p>' + marker.description + '</p></div>';
           var panoramaOptions = {
             position: nearStreetViewLocation,
             pov: {
               heading: heading,
-              pitch: 30
+              pitch: 10
             }
           };
           var panorama = new google.maps.StreetViewPanorama(
             document.getElementById('pano'), panoramaOptions);
         } else {
-          cornerInfoWindow.innerHTML = '<div id="close-thick"></div><div class="infowindow-text">' + marker.description + '</div>';
+          cornerInfoWindow.innerHTML = '<div id="close-thick"></div><div class="infowindow-text"><h2>' + marker.title + '</h2><p>' + marker.description + '</p></div>';
         }
         var closebutton = document.getElementById('close-thick');
         closebutton.addEventListener('click', function() {

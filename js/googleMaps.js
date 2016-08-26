@@ -26,5 +26,4 @@ var showMap = function() {
   infoWindow = new google.maps.InfoWindow();
   miniInfoWindow = new google.maps.InfoWindow();
   cornerInfoWindow = document.getElementById('corner-infowindow');
-  cornerInfoWindow.className += ' gm-style-iw';
 }

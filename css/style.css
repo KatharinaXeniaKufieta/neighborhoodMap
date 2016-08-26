@@ -27,23 +27,31 @@ html, body {
 
 #corner-infowindow {
   position: absolute;
-  width: 270px;
-  height: 380px;
+  width: 300px;
+  height: 400px;
   z-index: 1;
   left: 330px;
   top: 110px;
   background-color: white;
   visibility: hidden;
+  border-radius: 2px;
+  -webkit-box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.2);
+  border: 2px solid #b6b6b6;
+  border-color: rgba(0, 0, 0, 0.2);
+  padding: 5px auto;
 }
 
 #close-thick:after {
-  color: #a5a5a5;
-  font: 22px/100% arial, sans-serif;
+  z-index: 2;
+  color: #ebfd1b;
+  font: 40px/100% arial, sans-serif;
   position: absolute;
   right: 7px;
   text-decoration: none;
   text-shadow: 0 1px 0 #fff;
-  top: 7px;
+  top: 3px;
   content: '×';
   cursor: pointer;
 }
@@ -98,7 +106,7 @@ li.hover {
 }
 
 #pano {
-  width: 200px;
+  width: 300px;
   height: 200px;
 }
 
@@ -108,7 +116,7 @@ li.hover {
   font-weight: 1.5em;
 }
 
-.infowindow-image {
+.gif-image {
   max-width: 250px !important;
   max-height: 250px;
   overflow: hidden;
@@ -123,10 +131,11 @@ li.hover {
 }
 
 .infowindow-text {
-  max-width: 200px !important;
-  font-weight: 300;
-  font-size: 13px;
+  padding: 7px;
+  max-width: 280px !important;
+  font-size: 15px;
   overflow: hidden;
+  color: #25424d;
 }
 
 .col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, 0, .col-11, 1, .col-12, {
