@@ -33,7 +33,7 @@ var locations = [
       position: {lat: 40.719726, lng: -73.959983},
       description: 'My fav maroccan restaurant. Try the lamb tagine!',
       iconImage: 'img/icons/noodles.png',
-      searchTerm: 'delicious+food',
+      searchTerm: 'healthy+food',
       gif: 'http://i.giphy.com/l0O9yqyFbuxZoBifu.gif',
       id: 'ChIJN5X_gWdZwokRck9rk2guJ1M',
       liked: false

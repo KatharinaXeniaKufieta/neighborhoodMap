@@ -75,7 +75,8 @@ h2 {
 .sidenav li {
   font-size: 25px;
   top: 0;
-  color: #6eb9d4;
+  /* color: #6eb9d4; */
+  color: #a7e4fb;
   display: block;
   transition: 0.3s;
   padding: 10px 0px;
@@ -97,12 +98,14 @@ li.selected {
 }
 
 li.noHighlight {
-  color: #6eb9d4;
+  /* color: #6eb9d4; */
+  color: #a7e4fb;
 }
 
 li.hover {
   cursor: pointer;
-  color: #e5e9da;
+  /* color: #e5e9da; */
+  color: #eef3e2;
 }
 
 .title {
@@ -121,7 +124,7 @@ li.hover {
   font-weight: 1.5em;
 }
 
-.gif-image {
+.poweredy-by-image {
   max-width: 250px !important;
   max-height: 250px;
   overflow: hidden;
