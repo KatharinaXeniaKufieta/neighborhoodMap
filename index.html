@@ -25,6 +25,7 @@
             <li data-bind="text: title, css: getSelected, click: function(data, event) {$parent.chooseLocation(data, event); getGif(50000, data, event)}, event: {mouseover: $parent.mouseOver, mouseout: $parent.mouseOut}">
             </li>
             <img class="gif-image" data-bind="click: function(data, event) {getGif(0, data, event)}, attr: {src: gif}, visible: selected">
+            <img class="powered-by-image" src="img/poweredByGiphy.gif" data-bind="visible: selected">
           </ul>
         </div>
         <div id="corner-infowindow">
