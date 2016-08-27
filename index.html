@@ -22,9 +22,9 @@
             <li class="closebtn">&times;</li>
           </ul>
           <ul data-bind="foreach: locations">
-            <li data-bind="text: title, css: getSelected, click: $parent.chooseLocation, event: {mouseover: $parent.mouseOver, mouseout: $parent.mouseOut}">
+            <li data-bind="text: title, css: getSelected, click: function(data, event) {$parent.chooseLocation(data, event); getGif(50000, data, event)}, event: {mouseover: $parent.mouseOver, mouseout: $parent.mouseOut}">
             </li>
-            <img class="gif-image" data-bind="attr: {src: gif}, visible: selected">
+            <img class="gif-image" data-bind="click: function(data, event) {getGif(0, data, event)}, attr: {src: gif}, visible: selected">
           </ul>
         </div>
         <div id="corner-infowindow">
@@ -37,6 +37,7 @@
       <div class="license-text">Icons made by <a href="http://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
     </div>
 
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <script src="js/lib/knockout-3.2.0.js"></script>
     <script src="js/Colors_Random.js"></script>
     <script src="js/model.js"></script>

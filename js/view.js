@@ -1,13 +1,16 @@
+var innerHTMLtext = '';
+
 var Location = function(data) {
   var self = this;
   // Knockout observables
   this.title = ko.observable(data.title);
   this.position = ko.observable(data.position);
   this.description = ko.observable(data.description);
-  this.gif = ko.observable(data.gif);
   this.id = ko.observable(data.id);
+  this.gif = ko.observable(data.gif);
   this.liked = ko.observable(data.liked);
   this.hover = ko.observable(false);
+  this.searchTerm = ko.observable(data.searchTerm);
 
   this.icon = data.iconImage;
 
@@ -78,6 +81,25 @@ var ViewModel = function() {
       }
     }, location);
 
+    location.getGif = function(timeout) {
+      var maxGifs = 50;
+      this.giphy;
+
+      var url = 'https://api.giphy.com/v1/gifs/search?q=' + location.searchTerm() + '&limit=' + maxGifs + '&api_key=dc6zaTOxFJmzC'
+      setTimeout(function() {
+        $.ajax({
+          dataType: "json",
+          url: url,
+          timeout: timeout,
+          success: function(result) {
+            var randomNum = Math.floor(Math.random() * maxGifs);
+            this.giphy = 'http://i.giphy.com/' + result.data[randomNum].id + '.gif';
+            location.gif(this.giphy);
+          }
+        });
+      }, timeout);
+    };
+
     location.getSelected = ko.pureComputed(function() {
       if (self.selectedLocationId() === location.id()) {
         location.marker.setIcon(self.selectedIcon);
@@ -85,6 +107,19 @@ var ViewModel = function() {
       } else if (location.hover()) {
         location.marker.setIcon(self.highlightedIcon);
           return 'hover';
+      } else {
+        location.marker.setIcon(location.icon);
+        return 'noHighlight';
+      }
+    }, location);
+
+    location.getSelected = ko.pureComputed(function() {
+      if (self.selectedLocationId() === location.id()) {
+        location.marker.setIcon(self.selectedIcon);
+        return 'selected';
+      } else if (location.hover()) {
+        location.marker.setIcon(self.highlightedIcon);
+        return 'hover';
       } else {
         location.marker.setIcon(location.icon);
         return 'noHighlight';
@@ -235,4 +270,50 @@ ViewModel.prototype.makeMarkerIcon = function(markerColor) {
     scaledSize: new google.maps.Size(21, 34)
   };
   return markerImage;
+};
+
+/********************************
+ * ViewModel - getPlacesDetails *
+ ********************************/
+  // This is the PLACE DETAILS search - it's the most detailed so it's only
+  // executed when a marker is selected, indicating the user wants more
+  // details about that place
+ViewModel.prototype.getPlacesDetails = function(marker) {
+  var service = new google.maps.places.PlacesService(map);
+  service.getDetails({
+    placeId: marker.id
+  }, function(place, status) {
+    if (status === google.maps.places.PlacesServiceStatus.OK) {
+      // Set the marker property on this infowindow so it isn't created
+      // again
+      innerHTMLtext = '<div>';
+      if (place.name) {
+        innerHTMLtext += '<strong>' + place.name + '</strong>';
+      }
+      if (place.formatted_address) {
+        innerHTMLtext += '<br>' + place.formatted_address;
+      }
+      if (place.formatted_phone_number) {
+        innerHTMLtext += '<br>' + place.formatted_phone_number;
+      }
+      if (place.opening_hours) {
+        innerHTMLtext += '<br><br><strong>Hours:</strong><br>' +
+          place.opening_hours.weekday_text[0] + '<br>' +
+          place.opening_hours.weekday_text[1] + '<br>' +
+          place.opening_hours.weekday_text[2] + '<br>' +
+          place.opening_hours.weekday_text[3] + '<br>' +
+          place.opening_hours.weekday_text[4] + '<br>' +
+          place.opening_hours.weekday_text[5] + '<br>' +
+          place.opening_hours.weekday_text[6];
+      }
+      if (place.photos) {
+        innerHTMLtext += '<br><br><img src="' + place.photos[0].getUrl(
+          {maxHeight: 100, maxWidth: 200}) + '">';
+      }
+      innerHTMLtext += '</div>';
+
+    } else {
+      console.log('status is not OK')
+    }
+  });
 };
