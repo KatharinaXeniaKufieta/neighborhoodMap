@@ -4,6 +4,7 @@ var Location = function(data) {
   var self = this;
   // Knockout observables
   this.title = ko.observable(data.title);
+  this.query = ko.observable(data.query);
   this.position = ko.observable(data.position);
   this.description = ko.observable(data.description);
   this.id = ko.observable(data.id);
@@ -13,6 +14,9 @@ var Location = function(data) {
   this.searchTerm = ko.observable(data.searchTerm);
 
   this.icon = data.iconImage;
+  this.detailedInfo = ko.observable('');
+  foursquareDetails(this, this.detailedInfo);
+  console.log(this.detailedInfo);
 
   // Markers are not supposed to be observables
   // Create a new marker for each location
@@ -183,7 +187,7 @@ ViewModel.prototype.showInfoWindow = function(location) {
       cornerInfoWindow.style.visibility = 'visible';
       // Make sure the marker property is cleared if the infoWindow is closed.
       var streetViewService = new google.maps.StreetViewService();
-      var radius = 50;
+      var radius = 25;
       // In case the status is OK, which means the pano was found, compute
       // the position of the streetview image, then calculate the heading,
       // then get a panorama from that and set the options
@@ -191,7 +195,7 @@ ViewModel.prototype.showInfoWindow = function(location) {
         if (status == google.maps.StreetViewStatus.OK) {
           var nearStreetViewLocation = data.location.latLng;
           var heading = google.maps.geometry.spherical.computeHeading(nearStreetViewLocation, marker.position);
-          cornerInfoWindow.innerHTML = '<div id="close-thick"></div><div id="pano"></div><div class="infowindow-text"><h2>' + marker.title + '</h2><p>' + marker.description + '</p></div>';
+          cornerInfoWindow.innerHTML = '<div id="close-thick"></div><div id="pano"></div><div class="infowindow-text"><h2>' + marker.title + '</h2>' + location.detailedInfo() + '<p>' + marker.description + '</p></div>';
           var panoramaOptions = {
             position: nearStreetViewLocation,
             pov: {
@@ -202,7 +206,10 @@ ViewModel.prototype.showInfoWindow = function(location) {
           var panorama = new google.maps.StreetViewPanorama(
             document.getElementById('pano'), panoramaOptions);
         } else {
-          cornerInfoWindow.innerHTML = '<div id="close-thick"></div><div class="infowindow-text"><h2>' + marker.title + '</h2><p>' + marker.description + '</p></div>';
+          cornerInfoWindow.innerHTML = '<div id="close-thick"></div><div class="infowindow-text"><h2>' + marker.title + '</h2>' + location.detailedInfo() + '<p>' + marker.description + '</p></div>';
+          if (innerHTMLtext !== '') {
+            cornerInfoWindow.innerHTML += innerHTMLtext;
+          }
         }
         var closebutton = document.getElementById('close-thick');
         closebutton.addEventListener('click', function() {
@@ -224,7 +231,7 @@ ViewModel.prototype.showInfoWindow = function(location) {
     if (infoWindow.marker != marker) {
       infoWindow.marker = marker;
       infoWindow.setContent('');
-      infoWindow.setContent('<div "class="infowindow-text">' + marker.title + '</div><div "class="infowindow-text">' + marker.description + '</div>');
+      infoWindow.setContent('<div "class="infowindow-text"><h2>' + marker.title + '</h2>' + location.detailedInfo() + '<p>' + marker.description + '</p></div>');
       // Make sure the marker property is cleared if the infowindow is closed.
       infoWindow.addListener('closeclick', function() {
         infoWindow.marker = null;
@@ -317,3 +324,49 @@ ViewModel.prototype.getPlacesDetails = function(marker) {
     }
   });
 };
+
+var foursquareDetails = function(location, text) {
+  var client_id = 'F34Z50BFJTO23D4GAKTW0TQ0XUWTUR4QLEIGLRNSYRLIDMU5';
+  var client_secret = 'TKNU23MJ2WJFC3I5HSE54LJDN1ZFZQXTQS02B0ZHSRS5BN0Z';
+  // var ll = '40.719726,-73.959983';
+  var ll = location.position().lat + ',' + location.position().lng;
+  var query = location.query();
+  var url = 'https://api.foursquare.com/v2/venues/search?client_id=' + client_id + '&client_secret=' + client_secret + '&v=20130815&ll=40.7,-74&ll=' + ll + '&query=' + query + '&limit=1';
+  $.ajax({
+    dataType: "json",
+    url: url,
+    success: function(result) {
+      var name = result.response.venues[0].name;
+      var formattedAddress = result.response.venues[0].location.formattedAddress;
+      var street = formattedAddress[0];
+      var city = formattedAddress[1];
+      var state = formattedAddress[2];
+      var homepage = result.response.venues[0].url;
+      var category = result.response.venues[0].categories[0].name;
+      console.log('result: ' + name);
+      console.log('result: ' + street);
+      console.log('result: ' + city);
+      console.log('result: ' + state);
+      console.log('result: ' + homepage);
+      console.log('result: ' + category);
+      console.log('result: ' + result.response.venues[0].id);
+
+      var newText = '';
+      newText += '<div>';
+      if (name) {
+        newText += '<strong>' + category + '</strong>';
+      }
+      if (formattedAddress) {
+        newText += '<br>' + street;
+        newText += '<br>' + city;
+        newText += '<br>' + state;
+      }
+      if (homepage) {
+        newText += '<br><a href=' + homepage + '>' + name + '</a>';
+      }
+      newText += '<br>(Information provided by <a href="https://foursquare.com/">Foursquare</a>)'
+      newText += '</div>';
+      text(newText);
+    }
+  });
+}

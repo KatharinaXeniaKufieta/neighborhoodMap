@@ -3,6 +3,7 @@
 var locations = [
     {
       title: 'Variety',
+      query: 'Variety',
       position: {lat: 40.715407, lng: -73.944341},
       description: 'My fav coffee. Not sure I can live without it any more!',
       iconImage: 'img/icons/coffee.png',
@@ -12,6 +13,7 @@ var locations = [
       liked: false
     }, {
       title: 'Momo Sushi Shack',
+      query: 'Momo+Sushi+Shack',
       position: {lat: 40.70512, lng: -73.933463},
       description: 'Best sushi ever. You will never look at sushi the same way again.',
       iconImage: 'img/icons/noodles.png',
@@ -21,6 +23,7 @@ var locations = [
       liked: false
     }, {
       title: 'David Barton Gym',
+      query: 'David+Barton+Gym',
       position: {lat: 40.741026, lng: -73.993689},
       description: 'A gym within a church! Working out has just gotten more spiritual and beautiful.',
       iconImage: 'img/icons/weightlifting.png',
@@ -30,6 +33,7 @@ var locations = [
       liked: false
     }, {
       title: 'Cafe Mogador Williamsburg',
+      query: 'Cafe+Mogador+Williamsburg',
       position: {lat: 40.719726, lng: -73.959983},
       description: 'My fav maroccan restaurant. Try the lamb tagine!',
       iconImage: 'img/icons/noodles.png',
@@ -39,6 +43,7 @@ var locations = [
       liked: false
     }, {
       title: 'Smorgasburg',
+      query: 'Smorgasburg',
       position: {lat: 40.72102, lng: -73.962178},
       description: 'Amazing food in a flea market style flair.',
       iconImage: 'img/icons/noodles.png',
@@ -48,6 +53,7 @@ var locations = [
       liked: false
     }, {
       title: 'BARC Shelter',
+      query: 'BARC+Shelter',
       position: {lat: 40.716199, lng: -73.963794},
       description: 'You can go on walks with dogs here, or hang out with cats.',
       iconImage: 'img/icons/tiger.png',
@@ -57,6 +63,7 @@ var locations = [
       liked: false
     }, {
       title: 'DUMBO Boulders',
+      query: 'DUMBO+Boulders',
       position: {lat: 40.704272, lng: -73.989235},
       description: 'Outdoor bouldering.',
       iconImage: 'img/icons/climbing.png',
@@ -66,6 +73,7 @@ var locations = [
       liked: false
     }, {
       title: 'The Cliffs at LIC',
+      query: 'The+Cliffs+at+LIC',
       position: {lat: 40.748649, lng: -73.948733},
       description: 'Awesome climbing gym.',
       iconImage: 'img/icons/climbing.png',
@@ -75,6 +83,7 @@ var locations = [
       liked: false
     }, {
       title: 'Champs',
+      query: 'Champs',
       position: {lat: 40.70844, lng: -73.9409},
       description: 'My fav vegan diner.',
       iconImage: 'img/icons/noodles.png',
