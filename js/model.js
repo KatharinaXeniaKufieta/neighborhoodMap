@@ -61,7 +61,7 @@ var locations = [
       query: 'BARC+Shelter',
       position: {lat: 40.716199, lng: -73.963794},
       description: 'You can go on walks with dogs here, or hang out with cats.',
-      iconImage: 'img/icons/tiger.png',
+      iconImage: 'img/icons/dog.png',
       searchTerm: 'puppy+cute',
       gif: 'http://i.giphy.com/eij3Aplt9hquI.gif',
       id: 'ChIJATsQiSO5QIYRHxyHdLT_FOQ',
@@ -116,7 +116,7 @@ var locations = [
       query: 'Torst',
       position: {lat: 40.723405, lng: -73.950758},
       description: 'Delicious!! beer but noisy on weekends.',
-      iconImage: 'img/icons/noodles.png',
+      iconImage: 'img/icons/beer.png',
       searchTerm: 'beer',
       gif: 'http://i.giphy.com/jKaFXbKyZFja0.gif',
       id: 'ChIJd-13VURZwokR32Qz0s3y61A',
@@ -164,6 +164,17 @@ var locations = [
       searchTerm: 'pizza',
       gif: 'http://i.giphy.com/jKaFXbKyZFja0.gif',
       id: 'ChIJ87Mc5wBcwokRAj4JNcwppaE',
+      liked: false,
+      owner: ['Kathi']
+    }, {
+      title: 'Gantry Plaza State Park',
+      query: 'Gantry+Plaza+State+Park',
+      position: {lat: 40.74549, lng: -73.958697},
+      description: 'Love this park, wish I could live closeby!',
+      iconImage: 'img/icons/forest.png',
+      searchTerm: 'park',
+      gif: 'http://i.giphy.com/jKaFXbKyZFja0.gif',
+      id: 'ChIJ6ztPaSJZwokRJqv7TPowwxA',
       liked: false,
       owner: ['Kathi']
     }
