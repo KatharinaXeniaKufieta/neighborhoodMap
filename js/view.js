@@ -16,7 +16,6 @@ var Location = function(data) {
   this.icon = data.iconImage;
   this.detailedInfo = ko.observable('');
   foursquareDetails(this, this.detailedInfo);
-  console.log(this.detailedInfo);
 
   // Markers are not supposed to be observables
   // Create a new marker for each location
@@ -343,13 +342,7 @@ var foursquareDetails = function(location, text) {
       var state = formattedAddress[2];
       var homepage = result.response.venues[0].url;
       var category = result.response.venues[0].categories[0].name;
-      console.log('result: ' + name);
-      console.log('result: ' + street);
-      console.log('result: ' + city);
-      console.log('result: ' + state);
-      console.log('result: ' + homepage);
-      console.log('result: ' + category);
-      console.log('result: ' + result.response.venues[0].id);
+      // console.log('result: ' + result.response.venues[0].id);
 
       var newText = '';
       newText += '<div>';
