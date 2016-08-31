@@ -363,3 +363,37 @@ var foursquareDetails = function(location, text) {
     }
   });
 }
+
+var Weather = function(data) {
+  console.log('from: ' + data.from);
+  console.log('to: ' + data.to);
+  var from = new Date(data.from);
+  var to = new Date(data.to);
+  console.log('converted from: ' + from);
+  console.log('converted to: ' + to);
+  this.from = ko.observable(from);
+  this.to = ko.observable(to);
+  this.precipitation = ko.observable(data.precipitation.value);
+  this.symbol = ko.observable('http://symbol.yr.no/grafikk/sym/b100/' + data.symbol.var + '.png');
+  this.temperature = ko.observable(data.temperature.value);
+  this.windSpeed = ko.observable(data.windSpeed.name);
+}
+
+var WeatherViewModel = function(results) {
+  var self = this;
+  this.creditLinkText = results.weatherdata.credit.link.text;
+  this.creditLinkURL = results.weatherdata.credit.link.url;
+  this.sunrise = results.weatherdata.sun.rise;
+  this.sunset = results.weatherdata.sun.set;
+
+  this.weatherSlots = ko.observableArray([]);
+
+  var result = results.weatherdata.forecast.tabular;
+  for (var i = 0, max = 15; i < max; i++) {
+    console.log('-------forecast tabular: -------');
+    var weatherSlot = new Weather(result[i]);
+    self.weatherSlots.push(weatherSlot);
+    // console.log(result[i]);
+  }
+};
+

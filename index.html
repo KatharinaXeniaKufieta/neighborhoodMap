@@ -12,8 +12,19 @@
         <div class="col-7">
         <h1 class="title">Kathis KJs NYC favs</h1>
         </div>
-        <div class="col-5">
-        <h1>Weather NYC</h1>
+        <div class="col-5" data-bind="stopBinding: true">
+          <div id="weather">
+            <p data-bind="text: creditLinkText"></p>
+            <a data-bind="attr: {href: creditLinkURL}"></a>
+            <div data-bind="foreach: weatherSlots">
+              <p data-bind="text: from"></p>
+              <p data-bind="text: to"></p>
+              <p data-bind="text: precipitation"></p>
+              <p data-bind="text: temperature"></p>
+              <img data-bind="attr: {src: symbol}">
+              <hr>
+            </div>
+          </div>
         </div>
       </div>
       <div class="row">
@@ -44,6 +55,7 @@
     <script src="js/model.js"></script>
     <script src="js/googleMaps.js"></script>
     <script src="js/view.js"></script>
+    <script src="http://polman.herokuapp.com/api/forecast?url=http://www.yr.no/place/United_States/New_York/New_York/forecast.xml&num=1&jsonp=initWeather" async defer></script>
     <script src="https://maps.googleapis.com/maps/api/js?libraries=places,geometry,drawing&v=3&key=AIzaSyDk7OBsWwKuggXanGS6v54vuxx3stJiKSs&callback=initMap"
     async defer></script>
   </body>

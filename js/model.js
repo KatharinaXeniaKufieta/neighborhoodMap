@@ -177,5 +177,16 @@ var locations = [
       id: 'ChIJ6ztPaSJZwokRJqv7TPowwxA',
       liked: false,
       owner: ['Kathi']
+    }, {
+      title: 'Lower East Side Tenement Museum',
+      query: 'Lower+East+Side+Tenement+Museum',
+      position: {lat: 40.718796, lng: -73.99007},
+      description: 'Here you can learn about life in NYC in the early 20th century. My favorite museum in the city.',
+      iconImage: 'img/icons/forest.png',
+      searchTerm: 'old+house',
+      gif: 'http://i.giphy.com/jKaFXbKyZFja0.gif',
+      id: 'ChIJ20bVJYdZwokRhI7esP3mYM0',
+      liked: false,
+      owner: ['Kathi']
     }
   ]

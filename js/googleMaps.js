@@ -8,7 +8,16 @@ var infoWindow,
 // When google maps has loaded, apply bindings and load map
 var initMap = function() {
   showMap();
+  ko.bindingHandlers.stopBinding = {
+    init: function() {
+      return {controlsDescendantBindings: true};
+    }
+  };
   ko.applyBindings(new ViewModel());
+}
+
+var initWeather = function(results) {
+  ko.applyBindings(new WeatherViewModel(results), document.getElementById('weather'));
 }
 
 // Callback function that is called when google maps is created
