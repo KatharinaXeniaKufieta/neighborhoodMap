@@ -16,12 +16,36 @@
           <div id="weather">
             <p data-bind="text: creditLinkText"></p>
             <a data-bind="attr: {href: creditLinkURL}"></a>
-            <div data-bind="foreach: weatherSlots">
-              <p data-bind="text: from"></p>
-              <p data-bind="text: to"></p>
-              <p data-bind="text: precipitation"></p>
-              <p data-bind="text: temperature"></p>
-              <img data-bind="attr: {src: symbol}">
+            <p data-bind="text: sunrise"></p>
+            <p data-bind="text: sunset"></p>
+            <div class="col-4">
+              <p data-bind="text: weatherForecast.day01.name"></p>
+              <div data-bind="foreach: weatherForecast.day01.weather">
+                <p data-bind="text: timeString"></p>
+                <p data-bind="text: precipitation"></p>
+                <p data-bind="text: temperature"></p>
+                <img data-bind="attr: {src: symbol}">
+              </div>
+              <hr>
+            </div>
+            <div class="col-4">
+              <p data-bind="text: weatherForecast.day02.name"></p>
+              <div data-bind="foreach: weatherForecast.day02.weather">
+                <p data-bind="text: timeString"></p>
+                <p data-bind="text: precipitation"></p>
+                <p data-bind="text: temperature"></p>
+                <img data-bind="attr: {src: symbol}">
+              </div>
+              <hr>
+            </div>
+            <div class="col-4">
+              <p data-bind="text: weatherForecast.day03.name"></p>
+              <div data-bind="foreach: weatherForecast.day03.weather">
+                <p data-bind="text: timeString"></p>
+                <p data-bind="text: precipitation"></p>
+                <p data-bind="text: temperature"></p>
+                <img data-bind="attr: {src: symbol}">
+              </div>
               <hr>
             </div>
           </div>
