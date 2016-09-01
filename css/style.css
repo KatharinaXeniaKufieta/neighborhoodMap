@@ -70,6 +70,10 @@ h2 {
   padding: 40px 0px 0px 0px;
 }
 
+input {
+  font-size: 20px;
+}
+
 #sidenav li {
   font-size: 20px;
   top: 0;

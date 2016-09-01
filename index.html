@@ -61,9 +61,10 @@
       <div class="row">
         <div id="sidenav">
           <ul>
+            <li><input data-bind="value: filter, valueUpdate: 'afterkeydown'" placeholder="Coffee, food, ..."></li>
             <li class="closebtn" onclick="closeNav()">&times;</li>
           </ul>
-          <ul data-bind="foreach: locations">
+          <ul data-bind="foreach: filteredLocations">
             <li data-bind="text: title, css: getSelected, click: function(data, event) {$parent.chooseLocation(data, event); getGif(50000, data, event)}, event: {mouseover: $parent.mouseOver, mouseout: $parent.mouseOut}">
             </li>
             <img class="gif-image" data-bind="click: function(data, event) {getGif(0, data, event)}, attr: {src: gif}, visible: selected">

@@ -5,6 +5,7 @@ var Location = function(data) {
   // Knockout observables
   this.title = ko.observable(data.title);
   this.query = ko.observable(data.query);
+  this.tags = ko.observable(data.tags);
   this.position = ko.observable(data.position);
   this.description = ko.observable(data.description);
   this.id = ko.observable(data.id);
@@ -43,6 +44,7 @@ var ViewModel = function() {
   // put the locations into an observable array
   this.locations = ko.observableArray([]);
   this.selectedLocationId = ko.observable(null);
+  this.filter = ko.observable('');
 
   // Style the markers a bit.
 
@@ -155,6 +157,27 @@ var ViewModel = function() {
     self.hideMinimizedInfoWindow(location.marker);
     location.hover(false);
   };
+
+  this.filteredLocations = ko.computed(function() {
+    var filter = this.filter().toLowerCase();
+    if (!filter) {
+      return this.locations();
+    } else {
+      self.hideMinimizedInfoWindow(location.marker);
+      infoWindow.marker = null;
+      infoWindow.close();
+      cornerInfoWindow.style.visibility = 'hidden';
+      return ko.utils.arrayFilter(this.locations(), function(location) {
+        var chosen = (location.title().toLowerCase().indexOf(filter) !== -1) || (location.tags().toLowerCase().indexOf(filter) !== -1) || (location.description().toLowerCase().indexOf(filter) !== -1) || (location.searchTerm().indexOf(filter) !== -1);
+        if (chosen) {
+          location.marker.setVisible(true);
+        } else {
+          location.marker.setVisible(false);
+        }
+        return chosen;
+      });
+    }
+  }, this);
 };
 
 

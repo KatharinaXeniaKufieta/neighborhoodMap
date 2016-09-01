@@ -4,6 +4,7 @@ var locations = [
   {
     title: 'Variety',
     query: 'Variety',
+    tags: 'coffee, muffins',
     position: {lat: 40.715407, lng: -73.944341},
     description: 'My fav coffee. Not sure I can live without it any more!',
     iconImage: 'img/icons/coffee.png',
@@ -15,6 +16,7 @@ var locations = [
   }, {
     title: 'Momo Sushi Shack',
     query: 'Momo+Sushi+Shack',
+    tags: 'sushi',
     position: {lat: 40.70512, lng: -73.933463},
     description: 'Best sushi ever. You will never look at sushi the same way again.',
     iconImage: 'img/icons/noodles.png',
@@ -26,6 +28,7 @@ var locations = [
   }, {
     title: 'David Barton Gym',
     query: 'David+Barton+Gym',
+    tags: 'gym, church',
     position: {lat: 40.741026, lng: -73.993689},
     description: 'A gym within a church! Working out has just gotten more spiritual and beautiful.',
     iconImage: 'img/icons/weightlifting.png',
@@ -37,6 +40,7 @@ var locations = [
   }, {
     title: 'Cafe Mogador Williamsburg',
     query: 'Cafe+Mogador+Williamsburg',
+    tags: 'food, maroccan',
     position: {lat: 40.719726, lng: -73.959983},
     description: 'My fav maroccan restaurant. Try the lamb tagine!',
     iconImage: 'img/icons/noodles.png',
@@ -48,6 +52,7 @@ var locations = [
   }, {
     title: 'Smorgasburg',
     query: 'Smorgasburg',
+    tags: 'food, coffee',
     position: {lat: 40.72102, lng: -73.962178},
     description: 'Amazing food in a flea market style flair.',
     iconImage: 'img/icons/noodles.png',
@@ -59,6 +64,7 @@ var locations = [
   }, {
     title: 'BARC Shelter',
     query: 'BARC+Shelter',
+    tags: 'dogs, cats, pets, shelter',
     position: {lat: 40.716199, lng: -73.963794},
     description: 'You can go on walks with dogs here, or hang out with cats.',
     iconImage: 'img/icons/dog.png',
@@ -70,6 +76,7 @@ var locations = [
   }, {
     title: 'DUMBO Boulders',
     query: 'DUMBO+Boulders',
+    tags: 'climbing',
     position: {lat: 40.704272, lng: -73.989235},
     description: 'Outdoor bouldering.',
     iconImage: 'img/icons/climbing.png',
@@ -81,6 +88,7 @@ var locations = [
   }, {
     title: 'The Cliffs at LIC',
     query: 'The+Cliffs+at+LIC',
+    tags: 'climbing',
     position: {lat: 40.748649, lng: -73.948733},
     description: 'Awesome climbing gym.',
     iconImage: 'img/icons/climbing.png',
@@ -92,6 +100,7 @@ var locations = [
   }, {
     title: 'Champs',
     query: 'Champs',
+    tags: 'food, vegan, vegetarian, american, diner, coffee',
     position: {lat: 40.70844, lng: -73.9409},
     description: 'My fav vegan diner.',
     iconImage: 'img/icons/noodles.png',
@@ -103,6 +112,7 @@ var locations = [
   }, {
     title: 'John Brown Smokehouse',
     query: 'John+Brown+Smokehouse',
+    tags: 'meat, barbecue, BBQ, beer',
     position: {lat: 40.748871, lng: -73.950122},
     description: 'The Burnt Ends are amazing.',
     iconImage: 'img/icons/noodles.png',
@@ -114,6 +124,7 @@ var locations = [
   }, {
     title: 'Tørst',
     query: 'Torst',
+    tags: 'beer',
     position: {lat: 40.723405, lng: -73.950758},
     description: 'Delicious!! beer but noisy on weekends.',
     iconImage: 'img/icons/beer.png',
@@ -125,6 +136,7 @@ var locations = [
   }, {
     title: 'OKONOMI // YUJI Ramen',
     query: 'OKONOMI+//+YUJI+Ramen',
+    tags: 'japanese, breakfast',
     position: {lat: 40.712538, lng: -73.948781},
     description: 'Traditional Japanese breakfast. Get here early.',
     iconImage: 'img/icons/noodles.png',
@@ -136,6 +148,7 @@ var locations = [
   }, {
     title: 'Nitehawk Cinema',
     query: 'Nitehawk+Cinema',
+    tags: 'movies, food',
     position: {lat: 40.715977, lng: -73.96254},
     description: 'Movie theater and restaurant! Get tickets and get here 30 minutes before movie.',
     iconImage: 'img/icons/noodles.png',
@@ -147,6 +160,7 @@ var locations = [
   }, {
     title: 'Falansai',
     query: 'Falansai',
+    tags: 'vietnamese, food',
     position: {lat: 40.706764, lng: -73.928765},
     description: 'Great vietnamese food. Get the dishes, skip their pho.',
     iconImage: 'img/icons/noodles.png',
@@ -158,6 +172,7 @@ var locations = [
   }, {
     title: 'Roberta\'s',
     query: 'Robertas',
+    tags: 'pizza, food',
     position: {lat: 40.705077, lng: -73.933592},
     description: 'Best, most exclusive pizza in Williamsburg. SO GOOD.',
     iconImage: 'img/icons/noodles.png',
@@ -169,6 +184,7 @@ var locations = [
   }, {
     title: 'Gantry Plaza State Park',
     query: 'Gantry+Plaza+State+Park',
+    tags: 'park, view',
     position: {lat: 40.74549, lng: -73.958697},
     description: 'Love this park, wish I could live closeby!',
     iconImage: 'img/icons/forest.png',
@@ -180,6 +196,7 @@ var locations = [
   }, {
     title: 'Lower East Side Tenement Museum',
     query: 'Lower+East+Side+Tenement+Museum',
+    tags: 'museum',
     position: {lat: 40.718796, lng: -73.99007},
     description: 'Here you can learn about life in NYC in the early 20th century. My favorite museum in the city.',
     iconImage: 'img/icons/forest.png',
