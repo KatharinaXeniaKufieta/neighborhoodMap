@@ -60,7 +60,7 @@ h2 {
   cursor: pointer;
 }
 
-.sidenav {
+#sidenav {
   width: 300px;
   position: absolute;
   z-index: 1;
@@ -70,7 +70,7 @@ h2 {
   padding: 40px 0px 0px 0px;
 }
 
-.sidenav li {
+#sidenav li {
   font-size: 20px;
   top: 0;
   /* color: #6eb9d4; */
@@ -80,13 +80,13 @@ h2 {
   padding: 10px 0px;
 }
 
-.sidenav .closebtn {
+#sidenav .closebtn {
   position: absolute;
   right: 25px;
   font-size: 36px;
 }
 
-.sidenav .closebtn:hover {
+#sidenav .closebtn:hover {
   cursor: pointer;
   color: #e5e9da;
 }
@@ -141,7 +141,7 @@ a {
   #corner-infowindow {
     top: 110px;
   }
-  .sidenav {
+  #sidenav {
     height: calc(100% - 100px);
     top: 80px;
   }
@@ -151,7 +151,7 @@ a {
   #corner-infowindow {
     top: 181px;
   }
-  .sidenav {
+  #sidenav {
     height: calc(100% - 171px);
     top: 151px;
   }
