@@ -190,19 +190,3 @@ var locations = [
     owner: ['Kathi']
   }
 ];
-
-
-var weatherForecast = {
-  day01 : {
-    name: 'Today',
-    weather: []
-  },
-  day02: {
-    name: 'Tomorrow',
-    weather: []
-  },
-  day03: {
-    name: 'The day after tomorrow',
-    weather: []
-  }
-};

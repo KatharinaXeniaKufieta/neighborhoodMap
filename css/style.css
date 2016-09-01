@@ -15,6 +15,7 @@ h2 {
   width: 100%;
 }
 
+
 .row {
   width: 100%;
   display: flex;
@@ -135,6 +136,24 @@ li.hover {
 
 a {
   text-decoration: none;
+}
+
+@media screen and (min-width: 0px) and (max-width: 1000px) {
+  #weather { display: none; }  /* hide it on small screens */
+}
+
+#weather {
+  color: #e5e9da;
+}
+
+.weather-slots {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.weather-symbol {
+  max-width: 100%;
+  max-height: 50px;
 }
 
 .gif-image {

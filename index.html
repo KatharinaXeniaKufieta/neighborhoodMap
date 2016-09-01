@@ -9,44 +9,51 @@
   <body>
     <div class="container">
       <div class="row">
-        <div class="col-7">
+        <div class="col-5">
         <h1 class="title">Kathis KJs NYC favs</h1>
         </div>
-        <div class="col-5" data-bind="stopBinding: true">
+        <div class="col-7" data-bind="stopBinding: true">
           <div id="weather">
-            <p data-bind="text: creditLinkText"></p>
-            <a data-bind="attr: {href: creditLinkURL}"></a>
-            <p data-bind="text: sunrise"></p>
-            <p data-bind="text: sunset"></p>
-            <div class="col-4">
-              <p data-bind="text: weatherForecast.day01.name"></p>
-              <div data-bind="foreach: weatherForecast.day01.weather">
-                <p data-bind="text: timeString"></p>
-                <p data-bind="text: precipitation"></p>
-                <p data-bind="text: temperature"></p>
-                <img data-bind="attr: {src: symbol}">
+            <div class="weather-slots col-12">
+              <div class="weather-slots" data-bind="style: {width: weatherForecast.day01.width}">
+                <div class="weather-slots col-12">
+                  <p data-bind="text: weatherForecast.day01.name"></p>
+                </div>
+                <div class="col-12 weather-slots" data-bind="foreach: weatherForecast.day01.weather">
+                  <div data-bind="style: {width: width}">
+                    <p data-bind="text: timeString"></p>
+                    <p data-bind="text: temperature"></p>
+                    <img class="weather-symbol" data-bind="attr: {src: symbol}">
+                  </div>
+                </div>
               </div>
-              <hr>
+              <div class="weather-slots" data-bind="style: {width: weatherForecast.day02.width}">
+                <div class="weather-slots col-12">
+                  <p data-bind="text: weatherForecast.day02.name"></p>
+                </div>
+                <div class="col-12 weather-slots" data-bind="foreach: weatherForecast.day02.weather">
+                  <div data-bind="style: {width: width}">
+                    <p data-bind="text: timeString"></p>
+                    <p data-bind="text: temperature"></p>
+                    <img class="weather-symbol" data-bind="attr: {src: symbol}">
+                  </div>
+                </div>
+              </div>
+              <div class="weather-slots" data-bind="style: {width: weatherForecast.day03.width}">
+                <div class="weather-slots col-12">
+                  <p data-bind="text: weatherForecast.day03.name"></p>
+                </div>
+                <div class="col-12 weather-slots" data-bind="foreach: weatherForecast.day03.weather">
+                  <div data-bind="style: {width: width}">
+                    <p data-bind="text: timeString"></p>
+                    <p data-bind="text: temperature"></p>
+                    <img class="weather-symbol" data-bind="attr: {src: symbol}">
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="col-4">
-              <p data-bind="text: weatherForecast.day02.name"></p>
-              <div data-bind="foreach: weatherForecast.day02.weather">
-                <p data-bind="text: timeString"></p>
-                <p data-bind="text: precipitation"></p>
-                <p data-bind="text: temperature"></p>
-                <img data-bind="attr: {src: symbol}">
-              </div>
-              <hr>
-            </div>
-            <div class="col-4">
-              <p data-bind="text: weatherForecast.day03.name"></p>
-              <div data-bind="foreach: weatherForecast.day03.weather">
-                <p data-bind="text: timeString"></p>
-                <p data-bind="text: precipitation"></p>
-                <p data-bind="text: temperature"></p>
-                <img data-bind="attr: {src: symbol}">
-              </div>
-              <hr>
+            <div class="col-12">
+              <p data-bind="text: creditLinkText"></p>
             </div>
           </div>
         </div>
@@ -79,6 +86,7 @@
     <script src="js/model.js"></script>
     <script src="js/googleMaps.js"></script>
     <script src="js/view.js"></script>
+    <script src="js/weatherView.js"></script>
     <script src="http://polman.herokuapp.com/api/forecast?url=http://www.yr.no/place/United_States/New_York/New_York/forecast.xml&num=1&jsonp=initWeather" async defer></script>
     <script src="https://maps.googleapis.com/maps/api/js?libraries=places,geometry,drawing&v=3&key=AIzaSyDk7OBsWwKuggXanGS6v54vuxx3stJiKSs&callback=initMap"
     async defer></script>
