@@ -35,7 +35,6 @@ h2 {
   width: 300px;
   z-index: 1;
   left: 330px;
-  top: 110px;
   background-color: white;
   visibility: hidden;
   border-radius: 2px;
@@ -46,6 +45,7 @@ h2 {
   border-color: rgba(0, 0, 0, 0.2);
   padding: 5px auto;
 }
+
 
 #close-thick:after {
   z-index: 2;
@@ -61,12 +61,10 @@ h2 {
 }
 
 .sidenav {
-  height: calc(100% - 100px);
   width: 300px;
   position: absolute;
   z-index: 1;
   left: 0;
-  top: 80px;
   background-color: #567682;
   transition: 0.5s;
   padding: 40px 0px 0px 0px;
@@ -140,6 +138,23 @@ a {
 
 @media screen and (min-width: 0px) and (max-width: 1000px) {
   #weather { display: none; }  /* hide it on small screens */
+  #corner-infowindow {
+    top: 110px;
+  }
+  .sidenav {
+    height: calc(100% - 100px);
+    top: 80px;
+  }
+}
+
+@media screen and (min-width: 1001px) {
+  #corner-infowindow {
+    top: 181px;
+  }
+  .sidenav {
+    height: calc(100% - 171px);
+    top: 151px;
+  }
 }
 
 #weather {

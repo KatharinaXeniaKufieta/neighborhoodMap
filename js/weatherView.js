@@ -39,8 +39,6 @@ var Weather = function(data) {
   this.timeString = '';
   this.dayString = '';
   this.setTimeAndDate(from, to);
-  console.log('timeString: ' + this.timeString);
-  console.log('dayString: ' + this.dayString);
 
   this.from = ko.observable(from);
   this.to = ko.observable(to);
@@ -134,7 +132,6 @@ var WeatherViewModel = function(results) {
 
   var result = results.weatherdata.forecast.tabular;
   for (var i = 0, max = 6; i < max; i++) {
-    console.log('-------forecast tabular: -------');
     var weather = new Weather(result[i]);
     if (weather.dayString === this.weatherForecast.day01.name) {
       this.weatherForecast.day01.weather.push(weather);
@@ -173,9 +170,7 @@ WeatherViewModel.prototype.setDateStrings = function() {
   // push day string for today, day01
   this.weatherForecast.day01.name = 'Today, ' + getWeekDay(todayDay);
   // push day string for tomorrow, day02
-  console.log(this.weatherForecast.day02.name);
   this.weatherForecast.day02.name = 'Tomorrow, ' + getWeekDay((todayDay + 1)%7);
   // push day string for the day after tomorrow, day03
-  console.log(this.weatherForecast.day03.name);
   this.weatherForecast.day03.name = getWeekDay((todayDay + 2)%7);
 }
