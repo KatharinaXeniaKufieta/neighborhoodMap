@@ -96,7 +96,7 @@ var ViewModel = function() {
           timeout: timeout,
           success: function(result) {
             var randomNum = Math.floor(Math.random() * maxGifs);
-            this.giphy = 'http://i.giphy.com/' + result.data[randomNum].id + '.gif';
+            this.giphy = 'https://i.giphy.com/' + result.data[randomNum].id + '.gif';
             location.gif(this.giphy);
           }
         });
@@ -269,7 +269,7 @@ ViewModel.prototype.hideMinimizedInfoWindow = function(marker) {
 
 ViewModel.prototype.makeMarkerIcon = function(markerColor) {
   var markerImage = {
-    url: 'http://chart.googleapis.com/chart?chst=d_map_spin&chld=1.15|0|'+ markerColor + '|40|_|%E2%80%A2',
+    url: 'https://chart.googleapis.com/chart?chst=d_map_spin&chld=1.15|0|'+ markerColor + '|40|_|%E2%80%A2',
     size: new google.maps.Size(21, 34),
     origin: new google.maps.Point(0, 0),
     anchor: new google.maps.Point(10, 34),

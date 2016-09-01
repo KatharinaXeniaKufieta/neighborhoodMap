@@ -45,7 +45,7 @@ var Weather = function(data) {
   this.from = ko.observable(from);
   this.to = ko.observable(to);
   this.precipitation = ko.observable(data.precipitation.value);
-  this.symbol = ko.observable('http://symbol.yr.no/grafikk/sym/b100/' + data.symbol.var + '.png');
+  this.symbol = ko.observable('https://symbol.yr.no/grafikk/sym/b100/' + data.symbol.var + '.png');
   this.temperature = ko.observable(data.temperature.value + '℃');
   this.windSpeed = ko.observable(data.windSpeed.name);
 }
