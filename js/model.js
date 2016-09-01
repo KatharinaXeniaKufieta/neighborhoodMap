@@ -8,7 +8,7 @@ var locations = [
     description: 'My fav coffee. Not sure I can live without it any more!',
     iconImage: 'img/icons/coffee.png',
     searchTerm: 'coffee',
-    gif: 'http://i.giphy.com/YU0HoCQidyGEE.gif',
+    gif: 'https://i.giphy.com/YU0HoCQidyGEE.gif',
     id: 'ChIJwbb1LlFZwokR43Wu0vdntIY',
     liked: false,
     owner: ['Kathi', 'KJ']
@@ -19,7 +19,7 @@ var locations = [
     description: 'Best sushi ever. You will never look at sushi the same way again.',
     iconImage: 'img/icons/noodles.png',
     searchTerm: 'sushi',
-    gif: 'http://i.giphy.com/X2QBmjCQAHtle.gif',
+    gif: 'https://i.giphy.com/X2QBmjCQAHtle.gif',
     id: 'ChIJ34aX5gBcwokREbremOF3FIY',
     liked: false,
     owner: ['Kathi', 'KJ']
@@ -30,7 +30,7 @@ var locations = [
     description: 'A gym within a church! Working out has just gotten more spiritual and beautiful.',
     iconImage: 'img/icons/weightlifting.png',
     searchTerm: 'gym',
-    gif: 'http://i.giphy.com/hlh2xvhZOfzji.gif',
+    gif: 'https://i.giphy.com/hlh2xvhZOfzji.gif',
     id: 'ChIJfVpqH7tZwokRj7_AISE81bQ',
     liked: false,
     owner: ['Kathi']
@@ -41,7 +41,7 @@ var locations = [
     description: 'My fav maroccan restaurant. Try the lamb tagine!',
     iconImage: 'img/icons/noodles.png',
     searchTerm: 'healthy+food',
-    gif: 'http://i.giphy.com/l0O9yqyFbuxZoBifu.gif',
+    gif: 'https://i.giphy.com/l0O9yqyFbuxZoBifu.gif',
     id: 'ChIJN5X_gWdZwokRck9rk2guJ1M',
     liked: false,
     owner: ['Kathi', 'KJ']
@@ -52,7 +52,7 @@ var locations = [
     description: 'Amazing food in a flea market style flair.',
     iconImage: 'img/icons/noodles.png',
     searchTerm: 'amazing+food',
-    gif: 'http://i.giphy.com/3F3QVLy3w6OfC.gif',
+    gif: 'https://i.giphy.com/3F3QVLy3w6OfC.gif',
     id: 'ChIJ9-C4sWdZwokRjDucHJ5DepI',
     liked: false,
     owner: ['Kathi', 'KJ']
@@ -63,7 +63,7 @@ var locations = [
     description: 'You can go on walks with dogs here, or hang out with cats.',
     iconImage: 'img/icons/dog.png',
     searchTerm: 'puppy+cute',
-    gif: 'http://i.giphy.com/eij3Aplt9hquI.gif',
+    gif: 'https://i.giphy.com/eij3Aplt9hquI.gif',
     id: 'ChIJATsQiSO5QIYRHxyHdLT_FOQ',
     liked: false,
     owner: ['Kathi']
@@ -74,7 +74,7 @@ var locations = [
     description: 'Outdoor bouldering.',
     iconImage: 'img/icons/climbing.png',
     searchTerm: 'climbing',
-    gif: 'http://i.giphy.com/NotDYMTH9HUiI.gif',
+    gif: 'https://i.giphy.com/NotDYMTH9HUiI.gif',
     id: 'ChIJGw950zNawokRBX_7jOyaUH4',
     liked: false,
     owner: ['Kathi']
@@ -85,7 +85,7 @@ var locations = [
     description: 'Awesome climbing gym.',
     iconImage: 'img/icons/climbing.png',
     searchTerm: 'climbing',
-    gif: 'http://i.giphy.com/NotDYMTH9HUiI.gif',
+    gif: 'https://i.giphy.com/NotDYMTH9HUiI.gif',
     id: 'ChIJxe0RxCdZwokRK3vM_8IU7Vk',
     liked: false,
     owner: ['Kathi', 'KJ']
@@ -96,7 +96,7 @@ var locations = [
     description: 'My fav vegan diner.',
     iconImage: 'img/icons/noodles.png',
     searchTerm: 'burger',
-    gif: 'http://i.giphy.com/jKaFXbKyZFja0.gif',
+    gif: 'https://i.giphy.com/jKaFXbKyZFja0.gif',
     id: 'ChIJg3HOgFdZwokRCpfl0k-McHg',
     liked: false,
     owner: ['Kathi', 'KJ']
@@ -107,7 +107,7 @@ var locations = [
     description: 'The Burnt Ends are amazing.',
     iconImage: 'img/icons/noodles.png',
     searchTerm: 'meat+barbecue',
-    gif: 'http://i.giphy.com/jKaFXbKyZFja0.gif',
+    gif: 'https://i.giphy.com/jKaFXbKyZFja0.gif',
     id: 'ChIJfSp0FS1fwokR8PYGmnV6vYs',
     liked: false,
     owner: ['KJ']
@@ -118,7 +118,7 @@ var locations = [
     description: 'Delicious!! beer but noisy on weekends.',
     iconImage: 'img/icons/beer.png',
     searchTerm: 'beer',
-    gif: 'http://i.giphy.com/jKaFXbKyZFja0.gif',
+    gif: 'https://i.giphy.com/jKaFXbKyZFja0.gif',
     id: 'ChIJd-13VURZwokR32Qz0s3y61A',
     liked: false,
     owner: ['KJ']
@@ -129,7 +129,7 @@ var locations = [
     description: 'Traditional Japanese breakfast. Get here early.',
     iconImage: 'img/icons/noodles.png',
     searchTerm: 'japanese+food',
-    gif: 'http://i.giphy.com/jKaFXbKyZFja0.gif',
+    gif: 'https://i.giphy.com/jKaFXbKyZFja0.gif',
     id: 'ChIJ2YwyMVhZwokRE47dTb7x1fo',
     liked: false,
     owner: ['Kathi', 'KJ']
@@ -140,7 +140,7 @@ var locations = [
     description: 'Movie theater and restaurant! Get tickets and get here 30 minutes before movie.',
     iconImage: 'img/icons/noodles.png',
     searchTerm: 'movies',
-    gif: 'http://i.giphy.com/jKaFXbKyZFja0.gif',
+    gif: 'https://i.giphy.com/jKaFXbKyZFja0.gif',
     id: 'ChIJMza4HWFZwokREyXlhbnRf5E',
     liked: false,
     owner: ['Kathi', 'KJ']
@@ -151,7 +151,7 @@ var locations = [
     description: 'Great vietnamese food. Get the dishes, skip their pho.',
     iconImage: 'img/icons/noodles.png',
     searchTerm: 'vietnamese+food',
-    gif: 'http://i.giphy.com/jKaFXbKyZFja0.gif',
+    gif: 'https://i.giphy.com/jKaFXbKyZFja0.gif',
     id: 'ChIJc11gFQJcwokRcOejfRbBPpo',
     liked: false,
     owner: ['KJ']
@@ -162,7 +162,7 @@ var locations = [
     description: 'Best, most exclusive pizza in Williamsburg. SO GOOD.',
     iconImage: 'img/icons/noodles.png',
     searchTerm: 'pizza',
-    gif: 'http://i.giphy.com/jKaFXbKyZFja0.gif',
+    gif: 'https://i.giphy.com/jKaFXbKyZFja0.gif',
     id: 'ChIJ87Mc5wBcwokRAj4JNcwppaE',
     liked: false,
     owner: ['Kathi']
@@ -173,7 +173,7 @@ var locations = [
     description: 'Love this park, wish I could live closeby!',
     iconImage: 'img/icons/forest.png',
     searchTerm: 'park',
-    gif: 'http://i.giphy.com/jKaFXbKyZFja0.gif',
+    gif: 'https://i.giphy.com/jKaFXbKyZFja0.gif',
     id: 'ChIJ6ztPaSJZwokRJqv7TPowwxA',
     liked: false,
     owner: ['Kathi']
@@ -184,7 +184,7 @@ var locations = [
     description: 'Here you can learn about life in NYC in the early 20th century. My favorite museum in the city.',
     iconImage: 'img/icons/forest.png',
     searchTerm: 'old+house',
-    gif: 'http://i.giphy.com/jKaFXbKyZFja0.gif',
+    gif: 'https://i.giphy.com/jKaFXbKyZFja0.gif',
     id: 'ChIJ20bVJYdZwokRhI7esP3mYM0',
     liked: false,
     owner: ['Kathi']
