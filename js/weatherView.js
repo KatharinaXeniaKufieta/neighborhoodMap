@@ -85,14 +85,14 @@ Weather.prototype.setTimeAndDate = function(from, to) {
   this.dayString += getWeekDay(toDay);
 
   if (from.getHours() < 10) {
-    this.timeString += '0' + from.getHours() +  ':00 - ';
+    this.timeString += '0' + from.getHours() +  ' - ';
   } else {
-    this.timeString += from.getHours() +  ':00 - ';
+    this.timeString += from.getHours() +  ' - ';
   }
   if (to.getHours() < 10) {
-    this.timeString += '0' + to.getHours() + ':00';
+    this.timeString += '0' + to.getHours();
   } else {
-    this.timeString += to.getHours() + ':00';
+    this.timeString += to.getHours();
   }
 }
 
