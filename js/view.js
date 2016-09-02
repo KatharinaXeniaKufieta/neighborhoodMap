@@ -13,6 +13,7 @@ var Location = function(data) {
   this.liked = ko.observable(data.liked);
   this.hover = ko.observable(false);
   this.searchTerm = ko.observable(data.searchTerm);
+  this.owner = ko.observable(data.owner);
 
   this.icon = data.iconImage;
   this.detailedInfo = ko.observable('');
@@ -45,7 +46,16 @@ var ViewModel = function() {
   this.locations = ko.observableArray([]);
   this.selectedLocationId = ko.observable(null);
   this.filter = ko.observable('');
+  this.kathi = ko.observable(true);
+  this.kj = ko.observable(true);
 
+  this.getKathiStatus = ko.pureComputed(function() {
+    return self.kathi() ? 'active' : 'not-active';
+  });
+
+  this.getKJStatus = ko.pureComputed(function() {
+    return self.kj() ? 'active' : 'not-active';
+  });
   // Style the markers a bit.
 
   // Create a "highlighted location" marker color for when the user hovers over the marker
@@ -159,25 +169,50 @@ var ViewModel = function() {
   };
 
   this.filteredLocations = ko.computed(function() {
-    var filter = this.filter().toLowerCase();
-    if (!filter) {
-      return this.locations();
+    // hide all infowindows
+    console.log('kathi: ' + self.kathi());
+    console.log('kj: ' + self.kj());
+    self.hideMinimizedInfoWindow(location.marker);
+    infoWindow.marker = null;
+    infoWindow.close();
+    cornerInfoWindow.style.visibility = 'hidden';
+    // get the input from the filter field
+    var filter = self.filter().toLowerCase();
+    // First verify if the buttons Kathis and KJs
+    // filter out some locations
+    if (self.kathi() && self.kj() && !filter) {
+      self.locations().forEach(function(location) {
+        location.marker.setVisible(true);
+      })
+      return self.locations();
     } else {
-      self.hideMinimizedInfoWindow(location.marker);
-      infoWindow.marker = null;
-      infoWindow.close();
-      cornerInfoWindow.style.visibility = 'hidden';
-      return ko.utils.arrayFilter(this.locations(), function(location) {
-        var chosen = (location.title().toLowerCase().indexOf(filter) !== -1) || (location.tags().toLowerCase().indexOf(filter) !== -1) || (location.description().toLowerCase().indexOf(filter) !== -1) || (location.searchTerm().indexOf(filter) !== -1);
-        if (chosen) {
-          location.marker.setVisible(true);
+      return ko.utils.arrayFilter(self.locations(), function(location) {
+        var chosen = true;
+        var kathiIndex = location.owner().toLowerCase().indexOf('kathi');
+        var kjIndex = location.owner().toLowerCase().indexOf('kj');
+        if (!self.kathi() && !self.kj()) {
+          chosen = false;
+        } else if (self.kathi() && kathiIndex !== -1) {
+          chosen = true;
+        } else if (self.kj() && kjIndex !== -1) {
+          chosen = true;
         } else {
+          chosen = false;
+        }
+        if (chosen === false) {
           location.marker.setVisible(false);
+        } else {
+          chosen = (location.title().toLowerCase().indexOf(filter) !== -1) || (location.tags().toLowerCase().indexOf(filter) !== -1) || (location.description().toLowerCase().indexOf(filter) !== -1) || (location.searchTerm().indexOf(filter) !== -1);
+          if (chosen) {
+            location.marker.setVisible(true);
+          } else {
+            location.marker.setVisible(false);
+          }
         }
         return chosen;
       });
     }
-  }, this);
+  });
 };
 
 
@@ -389,3 +424,20 @@ var foursquareDetails = function(location, text) {
     }
   });
 }
+
+ViewModel.prototype.toggleKathi = function() {
+  if (this.kathi() === true) {
+    this.kathi(false);
+  } else {
+    this.kathi(true);
+  }
+}
+
+ViewModel.prototype.toggleKJ = function() {
+  if (this.kj() === true) {
+    this.kj(false);
+  } else {
+    this.kj(true);
+  }
+}
+

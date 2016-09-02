@@ -10,7 +10,7 @@
     <div class="container">
       <div class="row">
         <div class="col-5">
-        <h1 class="title">Kathis KJs NYC favs</h1>
+        <h1 class="title"><button data-bind="css: getKathiStatus, click: toggleKathi">Kathis</button><button data-bind="css: getKJStatus, click: toggleKJ">KJs</button> NYC favs</h1>
         </div>
         <div class="col-7" data-bind="stopBinding: true">
           <div id="weather">
@@ -61,7 +61,7 @@
       <div class="row">
         <div id="sidenav">
           <ul>
-            <li><input data-bind="value: filter, valueUpdate: 'afterkeydown'" placeholder="Coffee, food, ..."></li>
+            <li><input data-bind="value: filter, valueUpdate: 'afterkeydown'" placeholder="Coffee, food, climbing,..."></li>
             <li class="closebtn" onclick="closeNav()">&times;</li>
           </ul>
           <ul data-bind="foreach: filteredLocations">

@@ -12,7 +12,7 @@ var locations = [
     gif: 'https://i.giphy.com/YU0HoCQidyGEE.gif',
     id: 'ChIJwbb1LlFZwokR43Wu0vdntIY',
     liked: false,
-    owner: ['Kathi', 'KJ']
+    owner: 'Kathi, KJ'
   }, {
     title: 'Momo Sushi Shack',
     query: 'Momo+Sushi+Shack',
@@ -24,7 +24,7 @@ var locations = [
     gif: 'https://i.giphy.com/X2QBmjCQAHtle.gif',
     id: 'ChIJ34aX5gBcwokREbremOF3FIY',
     liked: false,
-    owner: ['Kathi', 'KJ']
+    owner: 'Kathi, KJ'
   }, {
     title: 'David Barton Gym',
     query: 'David+Barton+Gym',
@@ -36,7 +36,7 @@ var locations = [
     gif: 'https://i.giphy.com/hlh2xvhZOfzji.gif',
     id: 'ChIJfVpqH7tZwokRj7_AISE81bQ',
     liked: false,
-    owner: ['Kathi']
+    owner: 'Kathi'
   }, {
     title: 'Cafe Mogador Williamsburg',
     query: 'Cafe+Mogador+Williamsburg',
@@ -48,7 +48,7 @@ var locations = [
     gif: 'https://i.giphy.com/l0O9yqyFbuxZoBifu.gif',
     id: 'ChIJN5X_gWdZwokRck9rk2guJ1M',
     liked: false,
-    owner: ['Kathi', 'KJ']
+    owner: 'Kathi, KJ'
   }, {
     title: 'Smorgasburg',
     query: 'Smorgasburg',
@@ -60,7 +60,7 @@ var locations = [
     gif: 'https://i.giphy.com/3F3QVLy3w6OfC.gif',
     id: 'ChIJ9-C4sWdZwokRjDucHJ5DepI',
     liked: false,
-    owner: ['Kathi', 'KJ']
+    owner: 'Kathi, KJ'
   }, {
     title: 'BARC Shelter',
     query: 'BARC+Shelter',
@@ -72,7 +72,7 @@ var locations = [
     gif: 'https://i.giphy.com/eij3Aplt9hquI.gif',
     id: 'ChIJATsQiSO5QIYRHxyHdLT_FOQ',
     liked: false,
-    owner: ['Kathi']
+    owner: 'Kathi'
   }, {
     title: 'DUMBO Boulders',
     query: 'DUMBO+Boulders',
@@ -84,7 +84,7 @@ var locations = [
     gif: 'https://i.giphy.com/NotDYMTH9HUiI.gif',
     id: 'ChIJGw950zNawokRBX_7jOyaUH4',
     liked: false,
-    owner: ['Kathi']
+    owner: 'Kathi'
   }, {
     title: 'The Cliffs at LIC',
     query: 'The+Cliffs+at+LIC',
@@ -96,7 +96,7 @@ var locations = [
     gif: 'https://i.giphy.com/NotDYMTH9HUiI.gif',
     id: 'ChIJxe0RxCdZwokRK3vM_8IU7Vk',
     liked: false,
-    owner: ['Kathi', 'KJ']
+    owner: 'Kathi, KJ'
   }, {
     title: 'Champs',
     query: 'Champs',
@@ -108,7 +108,7 @@ var locations = [
     gif: 'https://i.giphy.com/jKaFXbKyZFja0.gif',
     id: 'ChIJg3HOgFdZwokRCpfl0k-McHg',
     liked: false,
-    owner: ['Kathi', 'KJ']
+    owner: 'Kathi, KJ'
   }, {
     title: 'John Brown Smokehouse',
     query: 'John+Brown+Smokehouse',
@@ -120,7 +120,7 @@ var locations = [
     gif: 'https://i.giphy.com/jKaFXbKyZFja0.gif',
     id: 'ChIJfSp0FS1fwokR8PYGmnV6vYs',
     liked: false,
-    owner: ['KJ']
+    owner: 'KJ'
   }, {
     title: 'Tørst',
     query: 'Torst',
@@ -132,7 +132,7 @@ var locations = [
     gif: 'https://i.giphy.com/jKaFXbKyZFja0.gif',
     id: 'ChIJd-13VURZwokR32Qz0s3y61A',
     liked: false,
-    owner: ['KJ']
+    owner: 'KJ'
   }, {
     title: 'OKONOMI // YUJI Ramen',
     query: 'OKONOMI+//+YUJI+Ramen',
@@ -144,7 +144,7 @@ var locations = [
     gif: 'https://i.giphy.com/jKaFXbKyZFja0.gif',
     id: 'ChIJ2YwyMVhZwokRE47dTb7x1fo',
     liked: false,
-    owner: ['Kathi', 'KJ']
+    owner: 'Kathi, KJ'
   }, {
     title: 'Nitehawk Cinema',
     query: 'Nitehawk+Cinema',
@@ -156,7 +156,7 @@ var locations = [
     gif: 'https://i.giphy.com/jKaFXbKyZFja0.gif',
     id: 'ChIJMza4HWFZwokREyXlhbnRf5E',
     liked: false,
-    owner: ['Kathi', 'KJ']
+    owner: 'Kathi, KJ'
   }, {
     title: 'Falansai',
     query: 'Falansai',
@@ -168,7 +168,7 @@ var locations = [
     gif: 'https://i.giphy.com/jKaFXbKyZFja0.gif',
     id: 'ChIJc11gFQJcwokRcOejfRbBPpo',
     liked: false,
-    owner: ['KJ']
+    owner: 'KJ'
   }, {
     title: 'Roberta\'s',
     query: 'Robertas',
@@ -180,7 +180,7 @@ var locations = [
     gif: 'https://i.giphy.com/jKaFXbKyZFja0.gif',
     id: 'ChIJ87Mc5wBcwokRAj4JNcwppaE',
     liked: false,
-    owner: ['Kathi']
+    owner: 'Kathi'
   }, {
     title: 'Gantry Plaza State Park',
     query: 'Gantry+Plaza+State+Park',
@@ -192,7 +192,7 @@ var locations = [
     gif: 'https://i.giphy.com/jKaFXbKyZFja0.gif',
     id: 'ChIJ6ztPaSJZwokRJqv7TPowwxA',
     liked: false,
-    owner: ['Kathi']
+    owner: 'Kathi'
   }, {
     title: 'Lower East Side Tenement Museum',
     query: 'Lower+East+Side+Tenement+Museum',
@@ -204,6 +204,6 @@ var locations = [
     gif: 'https://i.giphy.com/jKaFXbKyZFja0.gif',
     id: 'ChIJ20bVJYdZwokRhI7esP3mYM0',
     liked: false,
-    owner: ['Kathi']
+    owner: 'Kathi'
   }
 ];
