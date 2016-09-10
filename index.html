@@ -14,42 +14,57 @@
         <div class="col-md-6">
           <h1 class="title">Kathi & KJs NYC favorites</h1>
         </div>
-        <div class="col-md-5" data-bind="stopBinding: true">
-          <!-- Button trigger modal -->
-          <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#myModal">
-            Weather in NYC
-          </button>
+        <div class="row col-md-5" data-bind="stopBinding: true">
+          <div id="weather">
+            <div class="col-md-3">
+                    <p class="temp" data-bind="text: weatherForecast[0].weather[0].temperature"></p>
+                    <img class="weather-symbol" data-bind="attr: {src: weatherForecast[0].weather[0].symbol}">
+            </div>
+            <!-- Button trigger modal -->
+            <div class="col-md-9">
+              <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#myModal">
+                Detailed Weather in NYC
+              </button>
+            </div>
 
-          <!-- Modal -->
-          <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                  <h4 class="modal-title" id="myModalLabel">Weather in NYC</h4>
-                </div>
-                <div id="weather" class="modal-body row">
-                  <div class="row col-md-12" data-bind="foreach: weatherForecast">
-                    <div data-bind="style: {width: width}">
-                      <div class="col-md-12">
-                        <h2 data-bind="text: name"></h2>
-                      </div>
-                      <div class="col-md-12 weather-slots" data-bind="foreach: weather">
-                        <div data-bind="style: {width: width}">
-                          <p data-bind="text: timeString"></p>
-                          <p class="temp" data-bind="text: temperature"></p>
-                          <img class="weather-symbol" data-bind="attr: {src: symbol}">
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Weather in NYC</h4>
+                  </div>
+                  <div class="modal-body row">
+                    <div class="col-md-6">
+                      <h3 data-bind="text: sunrise"></h3>
+                    </div>
+                    <div class="col-md-6">
+                      <h3 data-bind="text: sunset"></h3>
+                    </div>
+                    <hr>
+                    <div class="row col-md-12" data-bind="foreach: weatherForecast">
+                      <div data-bind="style: {width: width}">
+                        <div class="col-md-12">
+                          <h2 data-bind="text: name"></h2>
+                        </div>
+                        <div class="col-md-12 weather-slots" data-bind="foreach: weather">
+                          <div data-bind="style: {width: width}">
+                            <p data-bind="text: timeString"></p>
+                            <p class="temp" data-bind="text: temperature"></p>
+                            <img class="weather-symbol" data-bind="attr: {src: symbol}">
+                          </div>
                         </div>
                       </div>
                     </div>
+                    <div class="col-md-12">
+                      <p data-bind="text: creditLinkText"></p>
+                      <p><a data-bind="attr: {href: creditLinkURL}" target="_blank">Yr.no</a></p>
+                    </div>
                   </div>
-                  <div class="col-md-12">
-                    <p data-bind="text: creditLinkText"></p>
-                    <p><a data-bind="attr: {href: creditLinkURL}" target="_blank">Yr.no</a></p>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                   </div>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
               </div>
             </div>

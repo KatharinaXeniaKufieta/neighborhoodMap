@@ -101,8 +101,13 @@ var WeatherViewModel = function(results) {
   var self = this;
   this.creditLinkText = results.weatherdata.credit.link.text;
   this.creditLinkURL = results.weatherdata.credit.link.url;
-  this.sunrise = 'Sunrise: ' + results.weatherdata.sun.rise;
-  this.sunset = 'Sunset: ' + results.weatherdata.sun.set;
+  var sunrise = new Date(results.weatherdata.sun.rise);
+  sunrise.setHours((sunrise.getHours() + 4)%24);
+  var sunset = new Date(results.weatherdata.sun.set);
+  sunset.setHours((sunset.getHours() + 4)%24);
+  this.sunrise = 'Sunrise: ' + sunrise.toLocaleTimeString();
+  this.sunset = 'Sunset: ' + sunset.toLocaleTimeString();
+
   this.weatherForecast = [
     {
       name: '',
