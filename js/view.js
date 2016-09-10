@@ -252,7 +252,7 @@ ViewModel.prototype.showInfoWindow = function(location) {
         if (status == google.maps.StreetViewStatus.OK) {
           var nearStreetViewLocation = data.location.latLng;
           var heading = google.maps.geometry.spherical.computeHeading(nearStreetViewLocation, marker.position);
-          cornerInfoWindow.innerHTML = '<div id="close-thick"></div><div id="pano"></div><div class="infowindow-text"><h2>' + marker.title + '</h2>' + location.detailedInfo() + '<p id="quote">' + marker.description + '</p></div>';
+          cornerInfoWindow.innerHTML = '<div id="pano"></div><div class="infowindow-text"><div id="close-thick"></div><h2>' + marker.title + '</h2>' + location.detailedInfo() + '<p id="quote">' + marker.description + '</p></div>';
           var panoramaOptions = {
             position: nearStreetViewLocation,
             pov: {

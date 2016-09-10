@@ -5,7 +5,7 @@ html, body {
 }
 
 
-h1, h2, h3 {
+h2, h3 {
   font-weight: normal;
 }
 
@@ -42,13 +42,11 @@ p {
 
 #close-thick:after {
   z-index: 2;
-  color: #eee;
-  text-shadow: 2px 2px 3px #000;
+  color: #567682;
   font: 40px/100% arial, sans-serif;
   position: absolute;
   right: 7px;
   text-decoration: none;
-  top: 3px;
   content: '×';
   cursor: pointer;
 }
@@ -179,6 +177,10 @@ white: #a7e4fb
   font-weight: 1.5em;
 }
 
+img {
+  max-width: 100%;
+}
+
 .poweredy-by-image {
   max-width: 250px !important;
   max-height: 250px;
@@ -206,6 +208,10 @@ a {
   #top-nav {
     display: block;
   }
+}
+
+#top-nav button {
+  margin-top: 15px;
 }
 
 #hamburger {

@@ -32,7 +32,9 @@ var showMap = function() {
   // Boundaries that will be adjusted depending on the markers that are shown
   bounds = new google.maps.LatLngBounds();
   // Infowindows that are shown when a list item or marker is clicked
-  infoWindow = new google.maps.InfoWindow();
+  infoWindow = new google.maps.InfoWindow({
+    maxWidth: 300
+  });
   miniInfoWindow = new google.maps.InfoWindow();
   cornerInfoWindow = document.getElementById('corner-infowindow');
 }
