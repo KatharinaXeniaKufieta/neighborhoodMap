@@ -77,7 +77,7 @@ Weather.prototype.setTimeAndDate = function(from, to) {
   toDay = to.getDay();
   if (today.getDay() === toDay) {
     this.dayString += 'Today, '
-  } else if (today.getDay() + 1 === toDay) {
+  } else if ((today.getDay() + 1)%7 === toDay) {
     this.dayString += 'Tomorrow, '
   }
   this.dayString += getWeekDay(toDay);
@@ -103,29 +103,27 @@ var WeatherViewModel = function(results) {
   this.creditLinkURL = results.weatherdata.credit.link.url;
   this.sunrise = 'Sunrise: ' + results.weatherdata.sun.rise;
   this.sunset = 'Sunset: ' + results.weatherdata.sun.set;
-  this.weatherForecast = {
-    day01: {
+  this.weatherForecast = [
+    {
       name: '',
       counter: 0,
       width: '33%',
       slotWidth: '33%',
       weather: []
-    },
-    day02: {
+    }, {
       name: '',
       counter: 0,
       width: '33%',
       slotWidth: '33%',
       weather: []
-    },
-    day03: {
+    }, {
       name: '',
       counter: 0,
       width: '33%',
       slotWidth: '33%',
       weather: []
     }
-  };
+  ];
 
   // Get the current date strings for day01, day02, day03
   this.setDateStrings();
@@ -133,32 +131,27 @@ var WeatherViewModel = function(results) {
   var result = results.weatherdata.forecast.tabular;
   for (var i = 0, max = 6; i < max; i++) {
     var weather = new Weather(result[i]);
-    if (weather.dayString === this.weatherForecast.day01.name) {
-      this.weatherForecast.day01.weather.push(weather);
-      this.weatherForecast.day01.counter++;
-    } else if (weather.dayString === this.weatherForecast.day02.name) {
-      this.weatherForecast.day02.weather.push(weather);
-      this.weatherForecast.day02.counter++;
-    } else {
-      this.weatherForecast.day03.weather.push(weather);
-      this.weatherForecast.day03.counter++;
+
+    for (var j = 0, maxj = this.weatherForecast.length; j < maxj; j++) {
+      if (this.weatherForecast[j].name === weather.dayString) {
+        this.weatherForecast[j].weather.push(weather);
+        this.weatherForecast[j].counter++;
+      }
     }
   }
-  this.weatherForecast.day01.width = 100 / max * this.weatherForecast.day01.counter + '%';
-  this.weatherForecast.day02.width = 100 / max * this.weatherForecast.day02.counter + '%';
-  this.weatherForecast.day03.width = 100 / max * this.weatherForecast.day03.counter + '%';
-  var day01SlotWidth = 100 / this.weatherForecast.day01.counter + '%';
-  this.weatherForecast.day01.weather.forEach(function(weather) {
-    weather.width = day01SlotWidth;
-  });
-  var day02SlotWidth = 100 / this.weatherForecast.day02.counter + '%';
-  this.weatherForecast.day02.weather.forEach(function(weather) {
-    weather.width = day02SlotWidth;
-  });
-  var day03SlotWidth = 100 / this.weatherForecast.day03.counter + '%';
-  this.weatherForecast.day03.weather.forEach(function(weather) {
-    weather.width = day03SlotWidth;
-  });
+  for (var j = 0; j < this.weatherForecast.length; j++) {
+    this.weatherForecast[j].width = 100 / max * this.weatherForecast[j].counter + '%';
+    var daySlotWidth = 100 / this.weatherForecast[j].counter + '%';
+    this.weatherForecast[j].weather.forEach(function(weather) {
+      weather.width = daySlotWidth;
+    });
+    if (this.weatherForecast[j].weather.length === 0) {
+      if (j > -1) {
+        this.weatherForecast.splice(j, 1);
+        j--;
+      }
+    }
+  }
 };
 
 /*************************************
@@ -168,9 +161,9 @@ WeatherViewModel.prototype.setDateStrings = function() {
   var today = new Date(Date.now());
   todayDay = today.getDay();
   // push day string for today, day01
-  this.weatherForecast.day01.name = 'Today, ' + getWeekDay(todayDay);
+  this.weatherForecast[0].name = 'Today, ' + getWeekDay(todayDay);
   // push day string for tomorrow, day02
-  this.weatherForecast.day02.name = 'Tomorrow, ' + getWeekDay((todayDay + 1)%7);
+  this.weatherForecast[1].name = 'Tomorrow, ' + getWeekDay((todayDay + 1)%7);
   // push day string for the day after tomorrow, day03
-  this.weatherForecast.day03.name = getWeekDay((todayDay + 2)%7);
-}
+  this.weatherForecast[2].name = getWeekDay((todayDay + 2)%7);
+};

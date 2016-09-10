@@ -30,36 +30,12 @@
                 </div>
                 <div class="modal-body">
                   <div id="weather">
-                    <div class="weather-slots col-md-12">
-                      <div class="weather-slots" data-bind="style: {width: weatherForecast.day01.width}">
-                        <div class="weather-slots col-md-12">
-                          <h3 data-bind="text: weatherForecast.day01.name"></h3>
+                    <div class="row col-md-12" data-bind="foreach: weatherForecast">
+                      <div data-bind="style: {width: width}">
+                        <div class="col-md-12">
+                          <h3 data-bind="text: name"></h3>
                         </div>
-                        <div class="col-md-12 weather-slots" data-bind="foreach: weatherForecast.day01.weather">
-                          <div data-bind="style: {width: width}">
-                            <p data-bind="text: timeString"></p>
-                            <p data-bind="text: temperature"></p>
-                            <img class="weather-symbol" data-bind="attr: {src: symbol}">
-                          </div>
-                        </div>
-                      </div>
-                      <div class="weather-slots" data-bind="style: {width: weatherForecast.day02.width}">
-                        <div class="weather-slots col-md-12">
-                          <h3 data-bind="text: weatherForecast.day02.name"></h3>
-                        </div>
-                        <div class="col-md-12 weather-slots" data-bind="foreach: weatherForecast.day02.weather">
-                          <div data-bind="style: {width: width}">
-                            <p data-bind="text: timeString"></p>
-                            <p data-bind="text: temperature"></p>
-                            <img class="weather-symbol" data-bind="attr: {src: symbol}">
-                          </div>
-                        </div>
-                      </div>
-                      <div class="weather-slots" data-bind="style: {width: weatherForecast.day03.width}">
-                        <div class="weather-slots col-md-12">
-                          <h3 data-bind="text: weatherForecast.day03.name"></h3>
-                        </div>
-                        <div class="col-md-12 weather-slots" data-bind="foreach: weatherForecast.day03.weather">
+                        <div class="col-md-12 weather-slots" data-bind="foreach: weather">
                           <div data-bind="style: {width: width}">
                             <p data-bind="text: timeString"></p>
                             <p data-bind="text: temperature"></p>
