@@ -83,14 +83,14 @@ Weather.prototype.setTimeAndDate = function(from, to) {
   this.dayString += getWeekDay(toDay);
 
   if (from.getHours() < 10) {
-    this.timeString += '0' + from.getHours() +  ' - ';
+    this.timeString += '0' + from.getHours() +  ':00 - ';
   } else {
-    this.timeString += from.getHours() +  ' - ';
+    this.timeString += from.getHours() +  ':00 - ';
   }
   if (to.getHours() < 10) {
-    this.timeString += '0' + to.getHours();
+    this.timeString += '0' + to.getHours() + ':00';
   } else {
-    this.timeString += to.getHours();
+    this.timeString += to.getHours() + ':00';
   }
 }
 
@@ -129,7 +129,7 @@ var WeatherViewModel = function(results) {
   this.setDateStrings();
 
   var result = results.weatherdata.forecast.tabular;
-  for (var i = 0, max = 6; i < max; i++) {
+  for (var i = 0, max = 10; i < max; i++) {
     var weather = new Weather(result[i]);
 
     for (var j = 0, maxj = this.weatherForecast.length; j < maxj; j++) {
@@ -140,7 +140,7 @@ var WeatherViewModel = function(results) {
     }
   }
   for (var j = 0; j < this.weatherForecast.length; j++) {
-    this.weatherForecast[j].width = 100 / max * this.weatherForecast[j].counter + '%';
+    this.weatherForecast[j].width = 100 / 4 * this.weatherForecast[j].counter + '%';
     var daySlotWidth = 100 / this.weatherForecast[j].counter + '%';
     this.weatherForecast[j].weather.forEach(function(weather) {
       weather.width = daySlotWidth;

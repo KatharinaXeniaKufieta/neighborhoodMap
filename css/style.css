@@ -200,7 +200,6 @@ a {
   #top-nav {
     display: none;
   }
-  #weather { display: none; }  /* hide it on small screens */
 }
 
 /* Medium devices (desktops, 992px and up) */
@@ -229,14 +228,9 @@ a {
   color: #25424d;
 }
 
-#weather h2 {
-  margin: 0;
-  padding: 5px 0 0 0;
-}
-
-#weather p {
-  margin: 0;
-  font-size: 0.9em;
+.temp {
+  color: #fa3a3a;
+  font-weight: bold;
 }
 
 .weather-slots {
