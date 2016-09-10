@@ -5,5 +5,5 @@ function openNav() {
 
 function closeNav() {
   document.getElementById('sidenav').style.width = '0';
-  document.getElementById('corner-infowindow').style.left = '30px';
+  document.getElementById('corner-infowindow').style.left = '80px';
 }
