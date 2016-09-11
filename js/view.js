@@ -186,6 +186,7 @@ var ViewModel = function() {
   this.filteredLocations = ko.computed(function() {
     // hide all infowindows
     self.hideMinimizedInfoWindow(location.marker);
+    self.selectedLocationId(-1);
     infoWindow.marker = null;
     infoWindow.close();
     cornerInfoWindow.style.visibility = 'hidden';
