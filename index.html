@@ -112,7 +112,7 @@
         <div id="sidenav">
           <ul>
             <li class="toggle-button"><button data-bind="css: getKathiStatus, click: toggleKathi">Kathis</button><button data-bind="css: getKJStatus, click: toggleKJ">KJs</button> favs</li>
-            <li><input data-bind="value: filter, valueUpdate: 'afterkeydown'" placeholder="Coffee, food, climbing,..."></li>
+            <li><input type="search" data-bind="value: filter, valueUpdate: 'afterkeydown'" placeholder="Coffee, food, climbing,..."></li>
             <li class="closebtn" onclick="closeNav()">&times;</li>
           </ul>
           <ul data-bind="foreach: filteredLocations">
