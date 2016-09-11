@@ -84,6 +84,7 @@ p {
 
 input {
   font-size: 20px;
+  color: #567682;
 }
 
 #sidenav li {
@@ -273,6 +274,10 @@ a {
   /* border-color: rgba(0, 0, 0, 0.2); */
   border-color: #ebfd1b;
   padding: 5px auto;
+}
+
+.gif-image:hover {
+  cursor: pointer;
 }
 
 .infowindow-text {

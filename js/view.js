@@ -113,6 +113,21 @@ var ViewModel = function() {
           }
         });
       }, timeout);
+      $(document).ajaxStart(function() {
+        // $(document.body).css({'cursor' : 'wait'});
+        var gifs = document.getElementsByClassName('gif-image');
+        for (var i = 0; i < gifs.length; i++) {
+          gifs[i].style.cursor = 'wait';
+        }
+        console.log('ajax start');
+      }).ajaxStop(function() {
+        // $(document.body).css({'cursor' : 'default'});
+        var gifs = document.getElementsByClassName('gif-image');
+        for (var i = 0; i < gifs.length; i++) {
+          gifs[i].style.cursor = 'pointer';
+        }
+        console.log('ajax stop');
+      });
     };
 
     location.getSelected = ko.pureComputed(function() {
@@ -170,8 +185,6 @@ var ViewModel = function() {
 
   this.filteredLocations = ko.computed(function() {
     // hide all infowindows
-    console.log('kathi: ' + self.kathi());
-    console.log('kj: ' + self.kj());
     self.hideMinimizedInfoWindow(location.marker);
     infoWindow.marker = null;
     infoWindow.close();
