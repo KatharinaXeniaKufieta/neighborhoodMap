@@ -3,6 +3,22 @@ module.exports = function(grunt) {
   require('load-grunt-tasks')(grunt);
 
   grunt.initConfig({
+    /* Clear out the css directories if they exists */
+    clean: {
+      dev: {
+        src: ['dist/css'],
+      },
+    },
+
+    /* Generate the images directory if it is missing */
+    mkdir: {
+      dev: {
+        options: {
+          create: ['dist/css', 'dist/css/lib/']
+        },
+      },
+    },
+
     /* Extract critical CSS and inline it into the HTML file */
     critical: {
       test: {

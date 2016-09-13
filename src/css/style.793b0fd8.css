@@ -1,15 +1,7 @@
-html,body {
+ {
   font-family: arial,sans-serif;
   margin: 0;
   padding: 0;
-}
-
-h2,h3 {
-  font-weight: 400;
-}
-
-p {
-  margin: 2px;
 }
 
 #map {
@@ -36,10 +28,6 @@ p {
   border: 2px solid #b6b6b6;
   border-color: rgba(0,0,0,0.2);
   padding: 5px auto;
-}
-
-li.closebtn {
-  color: #a7e4fb;
 }
 
 #close-thick:after {
@@ -86,12 +74,6 @@ li.closebtn {
   padding: 40px 0 0;
 }
 
-input {
-  font-size: 20px;
-  color: #567682;
-  width: 250px;
-}
-
 #sidenav li {
   font-size: 20px;
   top: 0;
@@ -124,18 +106,8 @@ li.hover {
   color: #fff;
 }
 
-button {
+ {
   vertical-align: middle;
-}
-
-.title {
-  padding: 0 20px;
-  color: #25424d;
-}
-
-.toggle-button {
-  color: #a7e4fb;
-  font-size: 1.1em;
 }
 
 .toggle-button button {
@@ -190,10 +162,6 @@ button:focus {
   font-weight: 1.5em;
 }
 
-img {
-  max-width: 100%;
-}
-
 .poweredy-by-image {
   max-width: 250px !important;
   max-height: 250px;
@@ -204,11 +172,12 @@ img {
   padding: 5px auto;
 }
 
-a {
+ {
   text-decoration: none;
 }
 
 /* Small devices (tablets, 768px and up) */
+
 @media (min-width: 0px) and (max-width: 991px) {
   #top-nav {
     display: none;
@@ -216,14 +185,11 @@ a {
 }
 
 /* Medium devices (desktops, 992px and up) */
+
 @media (min-width: 992px) {
   #top-nav {
     display: block;
   }
-}
-
-#top-nav button {
-  margin-top: 15px;
 }
 
 #hamburger {
@@ -237,25 +203,6 @@ a {
   left: 10px;
 }
 
-#weather {
-  color: #25424d;
-}
-
-.temp {
-  color: #fa3a3a;
-  font-weight: 700;
-}
-
-.weather-slots {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.weather-symbol {
-  max-width: 100%;
-  max-height: 50px;
-}
-
 .gif-image {
   max-width: 250px !important;
   max-height: 250px;
@@ -265,7 +212,7 @@ a {
   -moz-box-shadow: 0 0 3px rgba(0,0,0,0.2);
   box-shadow: 0 0 3px rgba(0,0,0,0.2);
   border: 2px solid #b6b6b6;
-/* border-color: rgba(0, 0, 0, 0.2); */
+  /* border-color: rgba(0, 0, 0, 0.2); */
   border-color: #ebfd1b;
   padding: 5px auto;
 }
@@ -294,10 +241,6 @@ a {
 .license-text a {
   color: #25424d;
   text-decoration: none;
-}
-
-.close {
-  font-size: 2em;
 }
 
 /*
