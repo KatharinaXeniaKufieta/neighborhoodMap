@@ -117,7 +117,7 @@ var locations = [
     description: 'The Burnt Ends are amazing.',
     iconImage: 'img/icons/noodles.png',
     searchTerm: 'meat+barbecue',
-    gif: 'http://i.giphy.com/3o7ZeESgACwwfmWXPa.gif',
+    gif: 'https://i.giphy.com/3o7ZeESgACwwfmWXPa.gif',
     id: 'ChIJfSp0FS1fwokR8PYGmnV6vYs',
     liked: false,
     owner: 'KJ'
@@ -129,7 +129,7 @@ var locations = [
     description: 'Delicious!! beer but noisy on weekends.',
     iconImage: 'img/icons/beer.png',
     searchTerm: 'beer',
-    gif: 'http://i.giphy.com/YPBvdXHxANHHi.gif',
+    gif: 'https://i.giphy.com/YPBvdXHxANHHi.gif',
     id: 'ChIJd-13VURZwokR32Qz0s3y61A',
     liked: false,
     owner: 'KJ'
@@ -141,7 +141,7 @@ var locations = [
     description: 'Traditional Japanese breakfast. Get here early.',
     iconImage: 'img/icons/noodles.png',
     searchTerm: 'japanese+food',
-    gif: 'http://i.giphy.com/Xh2NX0GGpSDWU.gif',
+    gif: 'https://i.giphy.com/Xh2NX0GGpSDWU.gif',
     id: 'ChIJ2YwyMVhZwokRE47dTb7x1fo',
     liked: false,
     owner: 'Kathi, KJ'
@@ -153,7 +153,7 @@ var locations = [
     description: 'Movie theater and restaurant! Get tickets and get here 30 minutes before movie.',
     iconImage: 'img/icons/noodles.png',
     searchTerm: 'theater+movies',
-    gif: 'http://i.giphy.com/egg7yrA1IrgD6.gif',
+    gif: 'https://i.giphy.com/egg7yrA1IrgD6.gif',
     id: 'ChIJMza4HWFZwokREyXlhbnRf5E',
     liked: false,
     owner: 'Kathi, KJ'
@@ -165,7 +165,7 @@ var locations = [
     description: 'Great vietnamese food. Get the dishes, skip their pho.',
     iconImage: 'img/icons/noodles.png',
     searchTerm: 'vietnamese+food',
-    gif: 'http://i.giphy.com/KPhMdE9q0HO6s.gif',
+    gif: 'https://i.giphy.com/KPhMdE9q0HO6s.gif',
     id: 'ChIJc11gFQJcwokRcOejfRbBPpo',
     liked: false,
     owner: 'KJ'
@@ -177,7 +177,7 @@ var locations = [
     description: 'Best, most exclusive pizza in Williamsburg. SO GOOD.',
     iconImage: 'img/icons/noodles.png',
     searchTerm: 'pizza',
-    gif: 'http://i.giphy.com/BPofSmBGnwJIQ.gif',
+    gif: 'https://i.giphy.com/BPofSmBGnwJIQ.gif',
     id: 'ChIJ87Mc5wBcwokRAj4JNcwppaE',
     liked: false,
     owner: 'Kathi'
@@ -189,7 +189,7 @@ var locations = [
     description: 'Love this park, wish I could live closeby!',
     iconImage: 'img/icons/forest.png',
     searchTerm: 'nature+tree',
-    gif: 'http://i.giphy.com/OQxmEv6imvBdu.gif',
+    gif: 'https://i.giphy.com/OQxmEv6imvBdu.gif',
     id: 'ChIJ6ztPaSJZwokRJqv7TPowwxA',
     liked: false,
     owner: 'Kathi'
@@ -201,7 +201,7 @@ var locations = [
     description: 'Here you can learn about life in NYC in the early 20th century. My favorite museum in the city.',
     iconImage: 'img/icons/museum.png',
     searchTerm: 'museum+nyc',
-    gif: 'http://i.giphy.com/l41YkDA3c3j2zJJLy.gif',
+    gif: 'https://i.giphy.com/l41YkDA3c3j2zJJLy.gif',
     id: 'ChIJ20bVJYdZwokRhI7esP3mYM0',
     liked: false,
     owner: 'Kathi'
