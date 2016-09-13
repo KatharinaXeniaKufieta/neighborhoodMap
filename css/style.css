@@ -1,11 +1,12 @@
-html, body {
+html,
+body {
   font-family: arial, sans-serif;
   margin: 0;
   padding: 0;
 }
 
-
-h2, h3 {
+h2,
+h3 {
   font-weight: normal;
 }
 
@@ -39,6 +40,9 @@ p {
   padding: 5px auto;
 }
 
+li.closebtn {
+  color: #a7e4fb;
+}
 
 #close-thick:after {
   z-index: 2;
@@ -58,6 +62,7 @@ p {
   padding: 0.5em 10px;
   quotes: "\201C""\201D""\2018""\2019";
 }
+
 #quote:before {
   color: #ccc;
   content: open-quote;
@@ -66,6 +71,7 @@ p {
   margin-right: 0.25em;
   vertical-align: -0.4em;
 }
+
 #quote p {
   display: inline;
 }
@@ -91,7 +97,6 @@ input {
 #sidenav li {
   font-size: 20px;
   top: 0;
-  /* color: #6eb9d4; */
   display: block;
   transition: 0.3s;
   padding: 10px 0px;
@@ -113,13 +118,11 @@ li.selected {
 }
 
 li.noHighlight {
-  /* color: #6eb9d4; */
   color: #a7e4fb;
 }
 
 li.hover {
   cursor: pointer;
-  /* color: #e5e9da; */
   color: #fff;
 }
 
@@ -132,6 +135,7 @@ button {
   color: #25424d;
 }
 .toggle-button {
+  color: #a7e4fb;
   font-size: 1.1em;
 }
 
@@ -174,17 +178,10 @@ button {
   color: #25424d;
 }
 
-button:focus {outline:0;}
+button:focus {
+  outline:0;
+}
 
-  /*
-dark: #25424d
-white: #e5e9da
-
-sidenav:
-dark: #567682
-white: #a7e4fb
-*/ 
-          
 #pano {
   width: 300px;
   height: 200px;
@@ -300,6 +297,10 @@ a {
 .license-text a {
   color: #25424d;
   text-decoration: none;
+}
+
+.close {
+  font-size: 2em;
 }
 
 /*

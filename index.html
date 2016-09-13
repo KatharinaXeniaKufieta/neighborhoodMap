@@ -42,8 +42,8 @@
                     <div class="col-md-6">
                       <h3 data-bind="text: sunset"></h3>
                     </div>
-                    <hr>
                     <div class="row col-md-12" data-bind="foreach: weatherForecast">
+                      <hr>
                       <div data-bind="style: {width: width}">
                         <div class="col-md-12">
                           <h2 data-bind="text: name"></h2>
@@ -58,6 +58,7 @@
                       </div>
                     </div>
                     <div class="col-md-12">
+                      <hr>
                       <p data-bind="text: creditLinkText"></p>
                       <p><a data-bind="attr: {href: creditLinkURL}" target="_blank">Yr.no</a></p>
                     </div>
@@ -138,7 +139,6 @@
     <script src="js/lib/bootstrap.min.js"></script>
     <script src="js/lib/knockout-3.2.0.js"></script>
     <script src="js/Colors_Random.js"></script>
-    <script src="js/app.js"></script>
     <script src="js/model.js"></script>
     <script src="js/googleMaps.js"></script>
     <script src="js/view.js"></script>

@@ -1,6 +1,7 @@
 /********************************
  * getWeekDay - helper function *
  ********************************/
+// Helper function to retrieve a string describing the weekday
 var getWeekDay = function(day) {
   switch (day) {
   case 1:
@@ -32,6 +33,7 @@ var getWeekDay = function(day) {
 /************
  * Weather  *
  ************/
+// Weather holds all information about the weather retrieved from Yr.no
 var Weather = function(data) {
   var from = new Date(data.from);
   var to = new Date(data.to);
@@ -51,6 +53,8 @@ var Weather = function(data) {
 /****************************
  * Weather - setTimeAndDate *
  ****************************/
+// Calculate the correct time (it is 4 hours off somehow),
+// and prepare for display in the module
 Weather.prototype.setTimeAndDate = function(from, to) {
   // Correct and get the time string
   var fromHour = from.getHours();
@@ -97,6 +101,9 @@ Weather.prototype.setTimeAndDate = function(from, to) {
 /********************
  * WeatherViewModel *
  ********************/
+// The WeatherViewModel handles the weather display only.
+// This includes the small preview on the top navbar and
+// the more detailed information in the modal
 var WeatherViewModel = function(results) {
   var self = this;
   this.creditLinkText = results.weatherdata.credit.link.text;
@@ -108,6 +115,7 @@ var WeatherViewModel = function(results) {
   this.sunrise = 'Sunrise: ' + sunrise.toLocaleTimeString();
   this.sunset = 'Sunset: ' + sunset.toLocaleTimeString();
 
+  // The weatherForecast holds the weather for the next 3 days
   this.weatherForecast = [
     {
       name: '',
@@ -133,6 +141,7 @@ var WeatherViewModel = function(results) {
   // Get the current date strings for day01, day02, day03
   this.setDateStrings();
 
+  // Fill the weatherForecast object with the weather information
   var result = results.weatherdata.forecast.tabular;
   for (var i = 0, max = 10; i < max; i++) {
     var weather = new Weather(result[i]);
@@ -144,6 +153,8 @@ var WeatherViewModel = function(results) {
       }
     }
   }
+  // Calculate the slot width needed for every time slot, and clean up
+  // days that did not receive any data
   for (var j = 0; j < this.weatherForecast.length; j++) {
     this.weatherForecast[j].width = 100 / 4 * this.weatherForecast[j].counter + '%';
     var daySlotWidth = 100 / this.weatherForecast[j].counter + '%';
@@ -162,6 +173,8 @@ var WeatherViewModel = function(results) {
 /*************************************
  * WeatherViewModel - setDateStrings *
  *************************************/
+// Set the date strings for the next three days, depending
+// on the current date
 WeatherViewModel.prototype.setDateStrings = function() {
   var today = new Date(Date.now());
   todayDay = today.getDay();

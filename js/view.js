@@ -1,5 +1,10 @@
+// Global variable for the cornerInfoWindow
 var innerHTMLtext = '';
 
+/************
+ * Location *
+ ************/
+// Location - holds all data about a given location
 var Location = function(data) {
   var self = this;
   // Knockout observables
@@ -32,6 +37,8 @@ var Location = function(data) {
     animation: google.maps.Animation.DROP
   });
 
+  // Determines the style for marker & list item,
+  // depending on if the user hovers over the location or not
   this.getHighlight = ko.pureComputed(function() {
     return self.hover() ? 'hover' : 'noHighlight';
   });
@@ -40,6 +47,8 @@ var Location = function(data) {
 /*************
  * ViewModel *
  *************/
+// Viewmodel for entire page (maps, list, gifs, streetview, foursquare),
+// except for the weather, which has to be handled separately
 var ViewModel = function() {
   var self = this;
   // put the locations into an observable array
@@ -49,20 +58,23 @@ var ViewModel = function() {
   this.kathi = ko.observable(true);
   this.kj = ko.observable(true);
 
+  // Retrieves the status of the Kathi button
   this.getKathiStatus = ko.pureComputed(function() {
     return self.kathi() ? 'active' : 'not-active';
   });
 
+  // Retrieves the status of the KJ button
   this.getKJStatus = ko.pureComputed(function() {
     return self.kj() ? 'active' : 'not-active';
   });
-  // Style the markers a bit.
 
+  // Style the markers a bit.
   // Create a "highlighted location" marker color for when the user hovers over the marker
   this.highlightedIcon = this.makeMarkerIcon('6eb9d4');
   this.selectedIcon = this.makeMarkerIcon('ebfd1b');
 
-
+  // Add event listeners to all locations for
+  // hovering and clicking on them
   locations.forEach(function(loc) {
     var location = new Location(loc);
 
@@ -88,6 +100,7 @@ var ViewModel = function() {
       };
     })(location));
 
+    // Check if this location is selected by the user or not
     location.selected = ko.pureComputed(function() {
       if (self.selectedLocationId() === location.id()) {
         return true;
@@ -96,13 +109,16 @@ var ViewModel = function() {
       }
     }, location);
 
+    // Get the gif for the given location based on a search term
+    // that is retrieved from the model
     location.getGif = function(timeout) {
+      // Retrieve at most 50 gifs from Giphy
       var maxGifs = 50;
-      this.giphy;
 
+      // URL to retrieve the GIFs from
       var url = 'https://api.giphy.com/v1/gifs/search?q=' + location.searchTerm() + '&limit=' + maxGifs + '&api_key=dc6zaTOxFJmzC'
       // No error handling needed, because even if GIFs can't come in, the user sees
-      // the default gif
+      // the default gif (except for the internet connection is down)
       setTimeout(function() {
         $.ajax({
           dataType: "json",
@@ -115,6 +131,9 @@ var ViewModel = function() {
           }
         });
       }, timeout);
+      // Add a rotating button for when the ajax loading is slow
+      // I assumed that was only necessary for the GIFs, but doesn't
+      // work that well
       $(document).ajaxStart(function() {
         // $(document.body).css({'cursor' : 'wait'});
         var gifs = document.getElementsByClassName('gif-image');
@@ -130,6 +149,8 @@ var ViewModel = function() {
       });
     };
 
+    // Check if the location is selected and return the respective class
+    // for the elements. These are then defined in the css/style.css file
     location.getSelected = ko.pureComputed(function() {
       if (self.selectedLocationId() === location.id()) {
         location.marker.setIcon(self.selectedIcon);
@@ -143,19 +164,7 @@ var ViewModel = function() {
       }
     }, location);
 
-    location.getSelected = ko.pureComputed(function() {
-      if (self.selectedLocationId() === location.id()) {
-        location.marker.setIcon(self.selectedIcon);
-        return 'selected';
-      } else if (location.hover()) {
-        location.marker.setIcon(self.highlightedIcon);
-        return 'hover';
-      } else {
-        location.marker.setIcon(location.icon);
-        return 'noHighlight';
-      }
-    }, location);
-
+    // Push all locations into the location array
     self.locations.push(location);
   });
 
@@ -169,22 +178,29 @@ var ViewModel = function() {
   // Extend the boundaries of the map for each marker
   map.fitBounds(bounds);
 
+  // Show infowindow for chosen location
   this.chooseLocation = function(location) {
     self.showInfoWindow(location);
   };
 
+  // Show minimized infowindow when hovering over location
   this.mouseOver = function(location) {
     self.showMinimizedInfoWindow(location.marker);
     location.hover(true);
   };
 
+  // Close minimized infowindow when hovering out
   this.mouseOut = function(location) {
     self.hideMinimizedInfoWindow(location.marker);
     location.hover(false);
   };
 
+  // These are the filtered locations that are shown on the map
+  // and in the list. If no filter is applied, it shows all locations.
+  // Filters can be via the Kathi or KJ buttons, or the search field.
   this.filteredLocations = ko.computed(function() {
-    // hide all infowindows
+    // Hide all infowindows and gifs if any filter activity
+    // is detected
     self.hideMinimizedInfoWindow(location.marker);
     self.selectedLocationId(-1);
     infoWindow.marker = null;
@@ -195,27 +211,38 @@ var ViewModel = function() {
     // First verify if the buttons Kathis and KJs
     // filter out some locations
     if (self.kathi() && self.kj() && !filter) {
+      // If both buttons Kathi & KJ activated and no
+      // filter is applied, show all locations
       self.locations().forEach(function(location) {
         location.marker.setVisible(true);
       })
       return self.locations();
     } else {
+      // Else go through the entire locations array and filter the locations
       return ko.utils.arrayFilter(self.locations(), function(location) {
         var chosen = true;
         var kathiIndex = location.owner().toLowerCase().indexOf('kathi');
         var kjIndex = location.owner().toLowerCase().indexOf('kj');
+        // If neither Kathi nor KJ is chosen, no location will show
         if (!self.kathi() && !self.kj()) {
           chosen = false;
         } else if (self.kathi() && kathiIndex !== -1) {
+          // If Kathi is chosen and the location is Kathis favorite, return
+          // true (for now)
           chosen = true;
         } else if (self.kj() && kjIndex !== -1) {
+          // If KJ is chosen and the location is KJs favorite, return
+          // true (for now)
           chosen = true;
         } else {
           chosen = false;
         }
+        // If the location is false, you can hide it
         if (chosen === false) {
           location.marker.setVisible(false);
         } else {
+          // If the location is chosen, check now if the filter input fits the
+          // location. If it does, show the location, if not, hide it.
           chosen = (location.title().toLowerCase().indexOf(filter) !== -1) || (location.tags().toLowerCase().indexOf(filter) !== -1) || (location.description().toLowerCase().indexOf(filter) !== -1) || (location.searchTerm().indexOf(filter) !== -1);
           if (chosen) {
             location.marker.setVisible(true);
@@ -228,7 +255,6 @@ var ViewModel = function() {
     }
   });
 };
-
 
 /******************************
  * ViewModel - showInfoWindow *
@@ -328,7 +354,6 @@ ViewModel.prototype.showMinimizedInfoWindow = function(marker) {
     miniInfoWindow.setContent('<div id="min-infowindow" class="infowindow-text">' + marker.title + '</div>');
     miniInfoWindow.open(map, marker);
   }
-  // Open the infowindow on the correct marker
 };
 
 /***************************************
@@ -339,6 +364,9 @@ ViewModel.prototype.hideMinimizedInfoWindow = function(marker) {
   miniInfoWindow.marker = null;
 };
 
+/******************************
+ * ViewModel - makeMarkerIcon *
+ ******************************/
 ViewModel.prototype.makeMarkerIcon = function(markerColor) {
   var markerImage = {
     url: 'https://chart.googleapis.com/chart?chst=d_map_spin&chld=1.15|0|'+ markerColor + '|40|_|%E2%80%A2',
@@ -353,9 +381,10 @@ ViewModel.prototype.makeMarkerIcon = function(markerColor) {
 /********************************
  * ViewModel - getPlacesDetails *
  ********************************/
-  // This is the PLACE DETAILS search - it's the most detailed so it's only
-  // executed when a marker is selected, indicating the user wants more
-  // details about that place
+// This is the PLACE DETAILS search - it's the most detailed so it's only
+// executed when a marker is selected, indicating the user wants more
+// details about that place
+// (This function is not used in this app, leaving it for future use)
 ViewModel.prototype.getPlacesDetails = function(marker) {
   var service = new google.maps.places.PlacesService(map);
   service.getDetails({
@@ -396,9 +425,32 @@ ViewModel.prototype.getPlacesDetails = function(marker) {
   });
 };
 
+/***************************
+ * ViewModel - toggleKathi *
+ ***************************/
+ViewModel.prototype.toggleKathi = function() {
+  if (this.kathi() === true) {
+    this.kathi(false);
+  } else {
+    this.kathi(true);
+  }
+}
+
+/************************
+ * ViewModel - toggleKJ *
+ ************************/
+ViewModel.prototype.toggleKJ = function() {
+  if (this.kj() === true) {
+    this.kj(false);
+  } else {
+    this.kj(true);
+  }
+}
+
 /**************
  * FourSquare *
  **************/
+// Retrieve FourSquare details for every location
 var foursquareDetails = function(location, text) {
   var client_id = 'F34Z50BFJTO23D4GAKTW0TQ0XUWTUR4QLEIGLRNSYRLIDMU5';
   var client_secret = 'TKNU23MJ2WJFC3I5HSE54LJDN1ZFZQXTQS02B0ZHSRS5BN0Z';
@@ -418,7 +470,6 @@ var foursquareDetails = function(location, text) {
         var state = formattedAddress[2];
         var homepage = result.response.venues[0].url;
         var category = result.response.venues[0].categories[0].name;
-        // console.log('result: ' + result.response.venues[0].id);
 
         var newText = '';
         newText += '<div>';
@@ -446,20 +497,3 @@ var foursquareDetails = function(location, text) {
     text(newText);
   });
 }
-
-ViewModel.prototype.toggleKathi = function() {
-  if (this.kathi() === true) {
-    this.kathi(false);
-  } else {
-    this.kathi(true);
-  }
-}
-
-ViewModel.prototype.toggleKJ = function() {
-  if (this.kj() === true) {
-    this.kj(false);
-  } else {
-    this.kj(true);
-  }
-}
-

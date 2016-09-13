@@ -3,7 +3,6 @@ var styles = [
     "featureType": "water",
     "stylers": [
       { "color": "#8dcee0" }
-      // { "lightness": "35" }
     ]
   },{
     "featureType": "landscape",
@@ -48,8 +47,6 @@ var styles = [
     "elementType": "geometry.fill",
     "stylers": [
       { "color": "#a3d99f" }
-      // { "lightness": 39 }
-      // { "hue": "#08ff00" }
     ]
   },{
     "featureType": "poi.sports_complex",
