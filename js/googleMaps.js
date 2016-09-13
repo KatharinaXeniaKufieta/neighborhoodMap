@@ -25,7 +25,7 @@ var initMap = function() {
     }
   };
   ko.applyBindings(new ViewModel());
-}
+};
 
 // Display message when map won't load
 var mapsHandleError = function() {
@@ -38,7 +38,7 @@ var mapsHandleError = function() {
   errorMessage.style.top = '100px';
   errorMessage.style.color = '#f00';
   errorMap.appendChild(errorMessage);
-}
+};
 
 // Callback function that is called when google maps is created
 var showMap = function() {
@@ -57,7 +57,7 @@ var showMap = function() {
   });
   miniInfoWindow = new google.maps.InfoWindow();
   cornerInfoWindow = document.getElementById('corner-infowindow');
-}
+};
 
 /******************************
  * Handle the weather display *
@@ -65,7 +65,7 @@ var showMap = function() {
 // When weather has loaded, apply bindings and load weather
 var initWeather = function(results) {
   ko.applyBindings(new WeatherViewModel(results), document.getElementById('weather'));
-}
+};
 
 // Display message when weather won't load
 var weatherHandleError = function() {
@@ -75,7 +75,7 @@ var weatherHandleError = function() {
   weather.innerHTML = '<p>Weather could not get loaded</p>' +
     '<p>You can view the weather here: ' +
     '<a href="http://www.yr.no/place/United_States/New_York/New_York/" target="_blank">Weather on Yr.no</a></p>';
-}
+};
 
 
 /********************************
@@ -111,7 +111,7 @@ var resizeLayout = function() {
   sidenavElement.style.height = (height - navbarHeight) + 'px';
   licenseElement.style.width = (width - 60) + 'px';
   infowindowElement.style.top = (navbarHeight + 30) + 'px';
-}
+};
 
 // Once the content is loaded, resize map and sidebar to fit the
 // size of the open screen

@@ -28,7 +28,7 @@ var getWeekDay = function(day) {
   default:
     return 'SOMETHING IS WRONG HERE, toDay: ' + day;
   }
-}
+};
 
 /************
  * Weather  *
@@ -48,7 +48,7 @@ var Weather = function(data) {
   this.symbol = ko.observable('https://symbol.yr.no/grafikk/sym/b100/' + data.symbol.var + '.png');
   this.temperature = ko.observable(data.temperature.value + '℃');
   this.windSpeed = ko.observable(data.windSpeed.name);
-}
+};
 
 /****************************
  * Weather - setTimeAndDate *
@@ -96,7 +96,7 @@ Weather.prototype.setTimeAndDate = function(from, to) {
   } else {
     this.timeString += to.getHours() + ':00';
   }
-}
+};
 
 /********************
  * WeatherViewModel *

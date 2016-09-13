@@ -434,7 +434,7 @@ ViewModel.prototype.toggleKathi = function() {
   } else {
     this.kathi(true);
   }
-}
+};
 
 /************************
  * ViewModel - toggleKJ *
@@ -445,7 +445,7 @@ ViewModel.prototype.toggleKJ = function() {
   } else {
     this.kj(true);
   }
-}
+};
 
 /**************
  * FourSquare *
@@ -496,4 +496,4 @@ var foursquareDetails = function(location, text) {
     var newText = '<div><p>(Error when loading Foursquare data)</p></div>';
     text(newText);
   });
-}
+};
