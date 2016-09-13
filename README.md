@@ -16,8 +16,8 @@ The neighborhood map is built using Knockout.js for data binding and utilizes va
     {
       title: 'MY LOCATION TITLE',
       query: 'MY+LOCATION+TITLE',
-      tags: 'coffee, muffins, yoga, whatever, you, want',
-      position: {lat: LOCATION_LAT, lng: LOACTION_LNG},
+      tags: 'coffee, muffins, yoga, whatever, you, want', // used in the filter
+      position: {lat: LOCATION_LAT, lng: LOCATION_LNG},
       description: 'describe your location here in your own words',
       iconImage: 'IMG_USED_FOR_MAP_ICON',
       searchTerm: 'search+term+for+Giphy',
@@ -29,7 +29,7 @@ The neighborhood map is built using Knockout.js for data binding and utilizes va
     ```
     
 3. You can obtain the lat, lng and place id from [here](https://google-developers.appspot.com/maps/documentation/utils/geocoder/)
-4. You can search for you favorite default GIF [here](http://giphy.com/). I recommend testing the searchTerm as well so it gives you automatic results for gifs that you like.
+4. You can search for you favorite default GIF [here](http://giphy.com/). I recommend testing the searchTerm as well so it gives you automatic results for gifs that you like. You need to use the `http://i.giphy.com/GIPHY_ID.gif` format for the GIF link. You can get that link for a Giphy GIF when you go to YOUR_GIF_ON_GIPHY --> Advanced --> Gif download.
 5. Remember that the `query` (for FourSquare) as well as the `searchTerm` (for Giphy) need to be words connected with plus signs and no spaces in between.
 4. To optimize the CSS, JS and HTML files, you need to install [grunt](http://gruntjs.com/installing-grunt), as well as all packages used in **Gruntfile.js**. After that optimize the JS, CSS and HTML files with 
 
