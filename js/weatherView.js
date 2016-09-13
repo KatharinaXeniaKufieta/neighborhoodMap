@@ -100,7 +100,7 @@ Weather.prototype.setTimeAndDate = function(from, to) {
 var WeatherViewModel = function(results) {
   var self = this;
   this.creditLinkText = results.weatherdata.credit.link.text;
-  this.creditLinkURL = results.weatherdata.credit.link.url;
+  this.creditLinkURL = 'http://www.yr.no/place/United_States/New_York/New_York/';
   var sunrise = new Date(results.weatherdata.sun.rise);
   sunrise.setHours((sunrise.getHours() + 4)%24);
   var sunset = new Date(results.weatherdata.sun.set);

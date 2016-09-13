@@ -16,6 +16,24 @@ var initMap = function() {
   ko.applyBindings(new ViewModel());
 }
 
+var mapsHandleError = function() {
+  var errorMap = document.getElementById('map');
+  var errorMessage = document.createElement('div');
+  errorMessage.innerHTML = '<h1 id="map-error-message">Map could not get loaded</h1>';
+  errorMessage.style.position = 'absolute';
+  errorMessage.style.left = '250px';
+  errorMessage.style.top = '100px';
+  errorMessage.style.color = '#f00';
+  errorMap.appendChild(errorMessage);
+}
+
+var weatherHandleError = function() {
+  var weather = document.getElementById('weather-modal-content');
+  weather.innerHTML = '<p>Weather could not get loaded</p>' +
+    '<p>You can view the weather here: ' +
+    '<a href="http://www.yr.no/place/United_States/New_York/New_York/" target="_blank">Weather on Yr.no</a></p>';
+}
+
 var initWeather = function(results) {
   ko.applyBindings(new WeatherViewModel(results), document.getElementById('weather'));
 }

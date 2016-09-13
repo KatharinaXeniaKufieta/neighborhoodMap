@@ -101,6 +101,8 @@ var ViewModel = function() {
       this.giphy;
 
       var url = 'https://api.giphy.com/v1/gifs/search?q=' + location.searchTerm() + '&limit=' + maxGifs + '&api_key=dc6zaTOxFJmzC'
+      // No error handling needed, because even if GIFs can't come in, the user sees
+      // the default gif
       setTimeout(function() {
         $.ajax({
           dataType: "json",
@@ -119,14 +121,12 @@ var ViewModel = function() {
         for (var i = 0; i < gifs.length; i++) {
           gifs[i].style.cursor = 'wait';
         }
-        console.log('ajax start');
       }).ajaxStop(function() {
         // $(document.body).css({'cursor' : 'default'});
         var gifs = document.getElementsByClassName('gif-image');
         for (var i = 0; i < gifs.length; i++) {
           gifs[i].style.cursor = 'pointer';
         }
-        console.log('ajax stop');
       });
     };
 
@@ -410,32 +410,40 @@ var foursquareDetails = function(location, text) {
     dataType: "json",
     url: url,
     success: function(result) {
-      var name = result.response.venues[0].name;
-      var formattedAddress = result.response.venues[0].location.formattedAddress;
-      var street = formattedAddress[0];
-      var city = formattedAddress[1];
-      var state = formattedAddress[2];
-      var homepage = result.response.venues[0].url;
-      var category = result.response.venues[0].categories[0].name;
-      // console.log('result: ' + result.response.venues[0].id);
+      if (result.response.venues.length > 0) {
+        var name = result.response.venues[0].name;
+        var formattedAddress = result.response.venues[0].location.formattedAddress;
+        var street = formattedAddress[0];
+        var city = formattedAddress[1];
+        var state = formattedAddress[2];
+        var homepage = result.response.venues[0].url;
+        var category = result.response.venues[0].categories[0].name;
+        // console.log('result: ' + result.response.venues[0].id);
 
-      var newText = '';
-      newText += '<div>';
-      if (name) {
-        newText += '<strong>' + category + '</strong>';
+        var newText = '';
+        newText += '<div>';
+        if (name) {
+          newText += '<strong>' + category + '</strong>';
+        }
+        if (formattedAddress) {
+          newText += '<br>' + street;
+          newText += '<br>' + city;
+          newText += '<br>' + state;
+        }
+        if (homepage) {
+          newText += '<br><a href=' + homepage + '>' + name + '</a>';
+        }
+        newText += '<br>(Information provided by <a href="https://foursquare.com/">Foursquare</a>)'
+        newText += '</div>';
+        text(newText);
+      } else {
+        var newText = '<div><p>(Error when loading Foursquare data)</p></div>';
+        text(newText);
       }
-      if (formattedAddress) {
-        newText += '<br>' + street;
-        newText += '<br>' + city;
-        newText += '<br>' + state;
-      }
-      if (homepage) {
-        newText += '<br><a href=' + homepage + '>' + name + '</a>';
-      }
-      newText += '<br>(Information provided by <a href="https://foursquare.com/">Foursquare</a>)'
-      newText += '</div>';
-      text(newText);
     }
+  }).fail(function(){
+    var newText = '<div><p>(Error when loading Foursquare data)</p></div>';
+    text(newText);
   });
 }
 
