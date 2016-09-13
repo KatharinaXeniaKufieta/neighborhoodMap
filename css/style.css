@@ -92,7 +92,6 @@ input {
   font-size: 20px;
   top: 0;
   /* color: #6eb9d4; */
-  color: #a7e4fb;
   display: block;
   transition: 0.3s;
   padding: 10px 0px;
@@ -110,7 +109,7 @@ input {
 }
 
 li.selected {
-  color: #ebfd1b;
+  color: #f6fda1;
 }
 
 li.noHighlight {
@@ -121,7 +120,7 @@ li.noHighlight {
 li.hover {
   cursor: pointer;
   /* color: #e5e9da; */
-  color: #eef3e2;
+  color: #fff;
 }
 
 button {
