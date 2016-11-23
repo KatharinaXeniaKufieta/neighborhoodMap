@@ -33,12 +33,19 @@ The neighborhood map is built using Knockout.js for data binding and utilizes va
 ![How to find the right link on Giphy](how_to_use_giphy.png)
 
 5. Remember that the `query` (for FourSquare) as well as the `searchTerm` (for Giphy) need to be words connected with plus signs and no spaces in between.
-4. To optimize the CSS, JS and HTML files, you need to install [grunt](http://gruntjs.com/installing-grunt), as well as all packages used in **Gruntfile.js**. After that optimize the JS, CSS and HTML files with 
+6. To optimize the CSS, JS and HTML files, you need to install [grunt](http://gruntjs.com/installing-grunt), as well as all packages used in **Gruntfile.js**. After that optimize the JS, CSS and HTML files with 
 
   ``` bash
   $> cd /path/to/your-project-folder/
   $> grunt
   ```
+7. Update gh-pages to only contain dist:
+
+  ``` bash
+  $> cd /path/to/your-project-folder/
+  $> git push origin `git subtree split --prefix dist master`:gh-pages --force
+  ```
+
   
 ## TO DO
 * The GIfs tend to repeat themselves even after you click on them (which should change the GIF). It would be nice to check that the next GIF is not the same as the previous one, or even keep a longer history of GIFs.
