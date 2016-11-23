@@ -205,5 +205,53 @@ var locations = [
     id: 'ChIJ20bVJYdZwokRhI7esP3mYM0',
     liked: false,
     owner: 'Kathi'
+  }, {
+    title: 'Strand Bookstore',
+    query: 'Strand+Bookstore',
+    tags: 'books, shopping',
+    position: {lat: 40.733228, lng: -73.990716},
+    description: 'Really big and charming bookstore',
+    iconImage: 'img/icons/museum.png',
+    searchTerm: 'books+bookstore+shopping',
+    gif: 'https://i.giphy.com/2JS3lrvRhyIrC.gif',
+    id: 'ChIJnSKGEJlZwokRaeEH1kdd348',
+    liked: false,
+    owner: 'KJ'
+  }, {
+    title: 'Brooklyn Bridge Park',
+    query: 'Brooklyn+Bridge+Park',
+    tags: 'park, view',
+    position: {lat: 40.700291, lng: -73.996699},
+    description: 'Walk across the Brooklyn Bridge from Manhattan and end up here',
+    iconImage: 'img/icons/forest.png',
+    searchTerm: 'nature+skyline+brooklyn+bridge',
+    gif: 'http://i.giphy.com/PmEQpCs0xSpC8.gif',
+    id: 'ChIJjaFpo0ZawokRBcOFUZ13CaE',
+    liked: false,
+    owner: 'KJ'
+  }, {
+    title: 'Washington Square Park',
+    query: 'Washington+Square+Park',
+    tags: 'park, manhattan, architecture',
+    position: {lat: 40.730823, lng: -73.997332},
+    description: 'Really nice and lively park in a nice area of the city',
+    iconImage: 'img/icons/forest.png',
+    searchTerm: 'park+city+manhattan',
+    gif: 'http://i.giphy.com/77yNkpKptFZrq.gif',
+    id: 'ChIJjX494pBZwokRGH620d9eYfo',
+    liked: false,
+    owner: 'KJ'
+  }, {
+    title: 'New York Public Library 5th Ave',
+    query: 'New+York+Public+Library',
+    tags: 'books, museum, architecture',
+    position: {lat: 40.753182, lng: -73.982253},
+    description: 'Gorgeous library, and it\'s next to the nice Bryant Park.',
+    iconImage: 'img/icons/museum.png',
+    searchTerm: 'books+museum+manhattan',
+    gif: 'http://i.giphy.com/3o6ozkeXSb0Cm25CzS.gif',
+    id: 'ChIJqaiomQBZwokRTHOaUG7fUTs',
+    liked: false,
+    owner: 'KJ'
   }
 ];
