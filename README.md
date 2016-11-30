@@ -8,7 +8,7 @@ The neighborhood map is built using Knockout.js for data binding and utilizes va
 - FourSquare (to show more details about the specific locations)
 - Yr.no (to show the current weather in NYC)
 
-## How to use this project
+## How to contribute to this project
 1. Check out the repository
 2. To add location data to the model you have to keep the following format:
 
@@ -48,10 +48,10 @@ The neighborhood map is built using Knockout.js for data binding and utilizes va
 
   
 ## TO DO
-* The GIfs tend to repeat themselves even after you click on them (which should change the GIF). It would be nice to check that the next GIF is not the same as the previous one, or even keep a longer history of GIFs.
-* I would like to sort the list of locations, maybe.
+* The GIfs tend to repeat themselves even after you click on them (which should change the GIF). It would be nice to check that the next GIF is not the same as the previous one, or even keep a longer history of GIFs. Alternatively Giphy TV might be an option to consider.
+* Sort the list of locations alphabetically?
 * Add more tags such that the search will work better.
-* Improve the search input for phones, add an X which will delete all input.
+* Improve the search input for the mobile version, add an X which will delete all input.
 * Add a clear button to clear all filters
 * Add flickr images to the infowindow and implement a rotator, such that the user can rotate through all images.
 * In that case, maybe put the google street view in a modal, it might be more useful that way since it will show more too.
