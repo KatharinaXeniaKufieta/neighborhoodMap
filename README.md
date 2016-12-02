@@ -1,6 +1,8 @@
 # Neighborhood Map
 The Neighborhood Map displays mine and my husbands (Kathi & KJ) favorite locations in NYC. It is great for visitors who like our recommendations. With this app they can get a visual overview and filter our favorites according to their needs.
 
+Test the application in the [Demo](http://kkufieta.github.io/neighborhoodMap/).
+
 ## About the app
 The neighborhood map is built using Knockout.js for data binding and utilizes various APIs. The used APIs are:
 - Google Maps
@@ -9,7 +11,10 @@ The neighborhood map is built using Knockout.js for data binding and utilizes va
 - Yr.no (to show the current weather in NYC)
 
 ## How to contribute to this project
-1. Check out the repository
+1. Check out the repository by cloning the project with
+
+    `git clone https://github.com/kkufieta/neighborhoodMap.git`
+    
 2. To add location data to the model you have to keep the following format:
 
     ```javascript
