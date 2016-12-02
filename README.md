@@ -47,7 +47,7 @@ The neighborhood map is built using Knockout.js for data binding and utilizes va
   ```
 
   
-## TO DO
+## TO DO / Collaboration sought to do
 * The GIfs tend to repeat themselves even after you click on them (which should change the GIF). It would be nice to check that the next GIF is not the same as the previous one, or even keep a longer history of GIFs. Alternatively Giphy TV might be an option to consider.
 * Sort the list of locations alphabetically?
 * Add more tags such that the search will work better.
@@ -55,3 +55,6 @@ The neighborhood map is built using Knockout.js for data binding and utilizes va
 * Add a clear button to clear all filters
 * Add flickr images to the infowindow and implement a rotator, such that the user can rotate through all images.
 * In that case, maybe put the google street view in a modal, it might be more useful that way since it will show more too.
+
+## Author
+The code is written by [Katharina Kufieta](https://www.linkedin.com/in/katharinakufieta).
